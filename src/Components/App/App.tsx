@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch} from "react-router";
+import {Redirect, Route, Switch} from "react-router";
 import {BrowserRouter} from "react-router-dom";
 import GlobalStyle from "../../assets/styles/globalStyles";
 import Weather from "../Weather/Weather";
@@ -12,7 +12,8 @@ function App() {
             <BrowserRouter>
                 <Switch>
                     <Route path='/weather' exact component={Weather}/>
-                    <Route path='/' exact component={Home}/>
+                    <Route path='/home' exact component={Home}/>
+                    <Route render={() => <Redirect to='/home'/>}/>
                 </Switch>
             </BrowserRouter>
         </>

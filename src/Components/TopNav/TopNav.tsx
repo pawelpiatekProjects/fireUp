@@ -1,14 +1,16 @@
 import React from "react";
 import { Menu } from 'antd';
-import {NavLink} from 'react-router-dom';
+import {NavLink, useLocation} from 'react-router-dom';
 import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
 const TopNav: React.FC = () => {
+    const location = useLocation().pathname.split('/')[1];
+    console.log('location', location);
     return (
-        <Menu mode='horizontal'>
+        <Menu mode='horizontal' selectedKeys={[location]}>
             <Menu.Item key='home'>
-                <NavLink to='/'>Home</NavLink>
+                <NavLink to='/home'>Home</NavLink>
             </Menu.Item>
             <Menu.Item key='menu2'>
                 <NavLink to='/#'>Menu2</NavLink>

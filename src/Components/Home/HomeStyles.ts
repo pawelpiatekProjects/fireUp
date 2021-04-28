@@ -17,5 +17,10 @@ export const CardsWrapper = styled.div`
 
 export const ImagesRowWrapper = styled.div`
   padding: 3rem;
+  margin-bottom: 5rem;
+`;
+
+export const SliderWrapper = styled.div`
+
 `;
 

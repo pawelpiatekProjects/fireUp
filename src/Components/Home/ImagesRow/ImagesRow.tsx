@@ -28,17 +28,17 @@ const Image = styled.div<IImages>`
 const ImagesRow: React.FC = () => {
     return(
         <>
-            <Row gutter={12}>
-                <Col xl={{span: 6}} xs={{span: 24}}>
+            <Row gutter={[12,12]}>
+                <Col xl={{span: 6}} md={{span: 12}} xs={{span: 24}}>
                     <Image img={office1} color={variables.primaryBlue}/>
                 </Col>
-                <Col xl={{span: 6}} xs={{span: 24}}>
+                <Col xl={{span: 6}} md={{span: 12}} xs={{span: 24}}>
                     <Image img={office2} color={variables.primaryYellow}/>
                 </Col>
-                <Col xl={{span: 6}} xs={{span: 24}}>
+                <Col xl={{span: 6}} md={{span: 12}} xs={{span: 24}}>
                     <Image img={office3} color={variables.secondaryYellow}/>
                 </Col>
-                <Col xl={{span: 6}} xs={{span: 24}}>
+                <Col xl={{span: 6}} md={{span: 12}} xs={{span: 24}}>
                     <Image img={office4} color={variables.secondaryBlue}/>
                 </Col>
             </Row>
