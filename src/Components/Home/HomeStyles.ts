@@ -1,31 +1,21 @@
 import styled from "styled-components";
-import { Layout, Row } from 'antd';
+import { Layout} from 'antd';
+import * as variables from '../../assets/styles/variables';
 
 const {Content} = Layout;
 
 export const ContentWrapper = styled(Content)`
+  padding: 0 5rem;
+  background: ${variables.colorLight};
+`;
+
+export const CardsWrapper = styled.div`
+  padding: 8rem 0;
+  margin-bottom: 5rem;
+  background: ${variables.primaryGray};
+`;
+
+export const ImagesRowWrapper = styled.div`
   padding: 3rem;
 `;
 
-export const Intro = styled.div`
-  width: 80%;
-  margin: 0 auto;
-  //display: flex;
-  //align-items: center;
-  //justify-content: space-between;
-`;
-
-
-export const IntroButtons = styled.div`
-  display: flex;
-  flex-direction: column;
-  
-  button {
-    margin: 1rem 0;
-  }
-`;
-
-export const IntroContent = styled.div`
-  
- 
-`;
