@@ -9,6 +9,10 @@ export const colorLight = '#fff';
 export const primaryGray = '#eee';
 
 
+// Box shadow
+export const boxShadowPrimary = `0 0 18px -4px ${secondaryBlue}`;
+
+
 // Ant design Breakpoints
 export const breakpoints = {
     xs: '480px',
