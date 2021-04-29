@@ -3,6 +3,8 @@ import * as variables from '../../../assets/styles/variables';
 
 interface ICarouselItem {
     img: string;
+    isAnimating: boolean;
+    transformSide: 'left' | 'right';
 }
 
 interface ICarouselItemButton {
@@ -20,6 +22,11 @@ const CarouselItem = styled.div<ICarouselItem>`
   filter: grayscale(100%);
   background-size: cover;
   position: relative;
+  transition: all .6s;
+  
+  opacity: ${props => props.isAnimating ? '.4' : '1'};
+  transform: ${props => props.isAnimating ? 'rotateY(90deg)' : 'rotateY(0)'};
+  transform-origin: ${props => props.transformSide};
 
   &:after {
     position: absolute;
@@ -28,7 +35,7 @@ const CarouselItem = styled.div<ICarouselItem>`
     background: ${variables.colorLightRgba};
     content: '';
     z-index: 0;
-    transition: all .3s;
+    transition: all .5s;
   }
   
   
@@ -39,7 +46,7 @@ const CarouselItem = styled.div<ICarouselItem>`
 `;
 
 export const CarouselItemLeft = styled(CarouselItem)`
- 
+  
     &:after {
       clip-path: polygon(100% 0, 0% 100%, 100% 100%);
     }
