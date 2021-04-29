@@ -12,11 +12,11 @@ const Cards: React.FC = () => {
     const [activeCard, setActiveCard] = useState(0);
 
     return (
-                <MainRow gutter={{xl: 16, lg: 16, md: 0}} align='middle'>
-                    <Col xl={{span: 4, offset: 4}} lg={{span: 4, offset: 2}} md={{span: 24,}} xs={{span: 24}}>
-                        <Row gutter={[16, 20]}>
+                <MainRow align='middle' gutter={[0,10]}>
+                    <Col xl={{span: 6, offset: 4}} lg={{span: 6, offset: 2}} md={{span: 22, offset: 1}} sm={{span: 22, offset: 1}} xs={{span: 22, offset: 1}}>
+                        <Row gutter={[10,10]}>
                             {cardsData.map((card, id) => (
-                                <Col xl={{span: 24}} key={id} xs={{span: 8}}>
+                                <Col lg={{span: 24}} md={{span: 6}} sm={{span: 6}} xs={{span:24}}>
                                     <CardButton
                                         isActive={id === activeCard}
                                         background={card.style?.background!}
@@ -29,7 +29,7 @@ const Cards: React.FC = () => {
                             ))}
                         </Row>
                     </Col>
-                    <Col xl={{span: 8, offset: 4}} lg={{span: 10, offset: 2}} md={{span: 24}} xs={{span: 24}}>
+                    <Col xl={{span: 10}} lg={{span: 10, offset: 2}} md={{span: 22, offset: 1}} sm={{span: 22, offset: 1}} xs={{span: 22, offset: 1}}>
                         <CardWrapper>
                             <CardElement>
                                 <Title level={4}>{cardsData[activeCard].cardTitle}</Title>

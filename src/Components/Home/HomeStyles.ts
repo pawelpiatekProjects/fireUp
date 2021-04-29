@@ -16,7 +16,7 @@ export const CardsWrapper = styled.div`
   //padding: 8rem 0;
   margin-bottom: 5rem;
   background: ${variables.primaryGray};
-  height: 50rem;
+  //height: 50rem;
 `;
 
 export const ImagesRowWrapper = styled.div`

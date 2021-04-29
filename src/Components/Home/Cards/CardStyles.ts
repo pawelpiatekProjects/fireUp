@@ -9,8 +9,7 @@ interface ICardButton {
 }
 
 export const MainRow = styled(Row)`
-  height: 100%;
-  width: 100%;
+  padding: 5rem 0;
 `;
 
 export const CardWrapper = styled.div`
@@ -35,7 +34,7 @@ export const CardImg = styled.img`
 
 export const CardButton = styled.button<ICardButton>`
   padding: 2rem 3rem;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
   border-radius: 1rem;
   background: ${props => props.background};
@@ -43,10 +42,19 @@ export const CardButton = styled.button<ICardButton>`
   border: none;
   transition: transform .3s;
   box-shadow: ${props => props.isActive ? variables.boxShadowPrimary : 'none'};
-  
+  width: 80%;
   &:hover {
     cursor: pointer;
     transform: scale(1.03);
     box-shadow: ${variables.boxShadowPrimary};
+  }
+  
+  @media(max-width: ${variables.breakpoints.lg}) {
+    font-size: 1.75rem;
+    width: 100%;
+  }
+  
+  @media(max-width: ${variables.breakpoints.md}) {
+    padding: 1rem 1.5rem;
   }
 `;
