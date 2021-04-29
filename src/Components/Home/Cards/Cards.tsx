@@ -35,6 +35,7 @@ const Cards: React.FC = () => {
                                 <Title level={4}>{cardsData[activeCard].cardTitle}</Title>
                                 <Text>{cardsData[activeCard].cardContent}</Text>
                             </CardElement>
+                            {/*TODO: add flower*/}
                             {/*<CardImg src={flower}/>*/}
                         </CardWrapper>
                     </Col>

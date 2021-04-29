@@ -26,10 +26,11 @@ export const CardElement = styled(Card)`
 export const CardImg = styled.img`
   width: 40rem;
   position: absolute;
-  top: -15rem;
-  right: -20rem;
+  bottom: 0;
+  left: 30%;
   z-index: 1;
-  transform: rotate(45deg);
+  transform:  rotate(45deg) ;
+  
 `;
 
 export const CardButton = styled.button<ICardButton>`

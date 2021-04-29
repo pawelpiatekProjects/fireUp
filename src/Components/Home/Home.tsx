@@ -4,11 +4,13 @@ import {
     ContentWrapper,
     CardsWrapper,
     ImagesRowWrapper,
-    SliderWrapper
+    CarouselWrapper
 } from './HomeStyles';
 import Cards from "./Cards/Cards";
 import ImagesRow from "./ImagesRow/ImagesRow";
-import Slider from "./Slider/Slider";
+import Carousel from "./Carousel/Carousel";
+import {Col, Row} from "antd";
+import BottomCard from "../BottomCard/BottomCard";
 
 
 const Home: React.FC = () => {
@@ -23,9 +25,21 @@ const Home: React.FC = () => {
                 <ImagesRowWrapper>
                     <ImagesRow/>
                 </ImagesRowWrapper>
-                <SliderWrapper>
-                    <Slider/>
-                </SliderWrapper>
+                <Row>
+                    <Col xl={{span: 20, offset: 2}}>
+                        <Row>
+                            <Col xl={{span: 12}}>
+                                <Carousel/>
+                            </Col>
+                            <Col xl={{span: 9, offset: 1}}>
+                                <BottomCard/>
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
+
+
+
             </ContentWrapper>
         </>
     )

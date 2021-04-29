@@ -24,7 +24,7 @@ export const ImagesRowWrapper = styled.div`
   margin-bottom: 5rem;
 `;
 
-export const SliderWrapper = styled.div`
+export const CarouselWrapper = styled.div`
 
 `;
 
