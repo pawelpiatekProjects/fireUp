@@ -25,9 +25,9 @@ const Home: React.FC = () => {
                 <ImagesRowWrapper>
                     <ImagesRow/>
                 </ImagesRowWrapper>
-                <Row>
+                <Row >
                     <Col xl={{span: 20, offset: 2}}>
-                        <Row>
+                        <Row >
                             <Col xl={{span: 12}}>
                                 <Carousel/>
                             </Col>
