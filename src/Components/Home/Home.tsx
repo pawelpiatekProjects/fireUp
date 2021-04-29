@@ -26,12 +26,24 @@ const Home: React.FC = () => {
                     <ImagesRow/>
                 </ImagesRowWrapper>
                 <Row >
-                    <Col xl={{span: 20, offset: 2}}>
-                        <Row >
-                            <Col xl={{span: 12}}>
+                    <Col xl={{span: 24}} lg={{span: 24}}>
+                        <Row gutter={[0,20]}>
+                            <Col
+                                xl={{span: 11}}
+                                lg={{span:20, offset: 2}}
+                                md={{span:20, offset: 2}}
+                                sm={{span:20, offset: 2}}
+                                xs={{span:20, offset: 2}}
+                            >
                                 <Carousel/>
                             </Col>
-                            <Col xl={{span: 9, offset: 1}}>
+                            <Col
+                                xl={{span: 8, offset: 1}}
+                                lg={{span: 20, offset: 2}}
+                                md={{span: 20, offset: 2}}
+                                sm={{span: 20, offset: 2}}
+                                xs={{span: 20, offset: 2}}
+                            >
                                 <BottomCard/>
                             </Col>
                         </Row>

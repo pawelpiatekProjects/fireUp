@@ -17,11 +17,9 @@ const Carousel: React.FC = () => {
 
     const [activeImages, setActiveImages] = useState([0, 1]);
     const [isAnimating, setIsAnimating] = useState(false);
-    const [transformSide, setTransformSide] = useState<'left' | 'right' >('left');
 
     const swipeImagesLeft = () => {
         setIsAnimating(true);
-        setTransformSide('left');
         setActiveImages(prevState => {
             if (prevState[1] === images.length - 1) {
                 return [prevState[0] + 1, 0];
@@ -39,7 +37,6 @@ const Carousel: React.FC = () => {
 
     const swipeImagesRight = () => {
         setIsAnimating(true);
-        setTransformSide('right');
         setActiveImages(prevState => {
             if(prevState[0] === 0) {
                 return [images.length - 1, prevState[1] - 1];
@@ -58,22 +55,32 @@ const Carousel: React.FC = () => {
     return (
         <CarouselWrapper>
             <Row gutter={[10, 0]}>
-                <Col xl={{span: 12}}>
+                <Col
+                    xl={{span: 12}}
+                    lg={{span: 12}}
+                    md={{span: 12}}
+                    sm={{span: 12}}
+                    xs={{span: 12}}
+                >
                     <CarouselItemLeft
                         img={images[activeImages[0]]}
                         isAnimating={isAnimating}
-                        transformSide={transformSide}
                     >
                         <CarouselItemButton mode='right' onClick={() => swipeImagesRight()}>
                             <DoubleRightOutlined/>
                         </CarouselItemButton>
                     </CarouselItemLeft>
                 </Col>
-                <Col xl={{span: 12}}>
+                <Col
+                    xl={{span: 12}}
+                    lg={{span: 12}}
+                    md={{span: 12}}
+                    sm={{span: 12}}
+                    xs={{span: 12}}
+                >
                     <CarouselItemRight
                         img={images[activeImages[1]]}
                         isAnimating={isAnimating}
-                        transformSide={transformSide}
                     >
                         <CarouselItemButton mode='left' onClick={() => swipeImagesLeft()}>
                             <DoubleLeftOutlined/>

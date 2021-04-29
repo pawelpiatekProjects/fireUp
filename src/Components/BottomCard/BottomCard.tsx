@@ -12,10 +12,10 @@ const BottomCard: React.FC = () => {
                 <Title type='warning' level={1}>Title</Title>
                 {data.map((element, index) => (
                     <Row gutter={[0, 20]} align='middle' key={index}>
-                        <Col span={2}>
+                        <Col span={1}>
                             <Title type='warning' level={2}>{index}</Title>
                         </Col>
-                        <Col span={18} offset={1}>
+                        <Col span={18} offset={2}>
                             <Text>{element}</Text>
                         </Col>
                     </Row>

@@ -4,7 +4,6 @@ import * as variables from '../../../assets/styles/variables';
 interface ICarouselItem {
     img: string;
     isAnimating: boolean;
-    transformSide: 'left' | 'right';
 }
 
 interface ICarouselItemButton {
@@ -12,7 +11,7 @@ interface ICarouselItemButton {
 }
 
 export const CarouselWrapper = styled.div`
-  
+  width: 100%;
 `;
 
 const CarouselItem = styled.div<ICarouselItem>`
@@ -26,7 +25,7 @@ const CarouselItem = styled.div<ICarouselItem>`
   
   opacity: ${props => props.isAnimating ? '.4' : '1'};
   transform: ${props => props.isAnimating ? 'rotateY(90deg)' : 'rotateY(0)'};
-  transform-origin: ${props => props.transformSide};
+
 
   &:after {
     position: absolute;
@@ -43,16 +42,21 @@ const CarouselItem = styled.div<ICarouselItem>`
     background: ${variables.primaryYellow};
   }
   
+  @media(max-width: ${variables.breakpoints.lg}) {
+    height: 30rem;
+  }
+  
 `;
 
 export const CarouselItemLeft = styled(CarouselItem)`
-  
+  transform-origin: right;
     &:after {
       clip-path: polygon(100% 0, 0% 100%, 100% 100%);
     }
 `;
 
 export const CarouselItemRight = styled(CarouselItem)`
+  transform-origin: left;
   &:after {
     clip-path: polygon(0 0, 0% 100%, 100% 100%);
   }
