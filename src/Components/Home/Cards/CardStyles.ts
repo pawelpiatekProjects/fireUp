@@ -4,6 +4,7 @@ import * as variables from '../../../assets/styles/variables';
 
 export const MainRow = styled(Row)`
   height: 100%;
+  width: 100%;
 `;
 
 export const CardWrapper = styled.div`

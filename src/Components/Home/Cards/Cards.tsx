@@ -14,7 +14,7 @@ const Cards: React.FC = () => {
 
     return (
         <MainRow gutter={[48, 16]} align='middle'>
-            <Col xl={{span: 4, offset: 2}} lg={{span: 4, offset: 2}} md={{span: 24}} xs={{span: 24}}>
+            <Col xl={{span: 2, offset: 4}} lg={{span: 4, offset: 2}} md={{span: 24}} xs={{span: 24}}>
                 <Row gutter={[16, 8]}>
                     {cardsData.map((card, id) => (
                         <Col xl={{span: 24}} key={id}>
@@ -23,7 +23,7 @@ const Cards: React.FC = () => {
                     ))}
                 </Row>
             </Col>
-            <Col xl={{span: 10, offset: 2}} lg={{span: 10, offset: 2}} md={{span: 24}} xs={{span: 24}}>
+            <Col xl={{span: 8, offset: 2}} lg={{span: 10, offset: 2}} md={{span: 24}} xs={{span: 24}}>
                 <CardWrapper>
                     <CardElement>
                         <Title level={4}>{activeCard.cardTitle}</Title>

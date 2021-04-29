@@ -1,5 +1,5 @@
 import React from "react";
-import {Layout, Space} from 'antd';
+import {Layout, Space, Row, Col} from 'antd';
 import TopNav from "../TopNav/TopNav";
 import {
     ContentWrapper,
@@ -17,25 +17,37 @@ const Home: React.FC = () => {
 
     return (
         <>
-            <Layout>
-                <Header>
-                    <TopNav/>
-                </Header>
-                <ContentWrapper>
-                    <CardsWrapper>
-                        <Cards/>
-                    </CardsWrapper>
-                    <ImagesRowWrapper>
-                        <ImagesRow/>
-                    </ImagesRowWrapper>
-                    <SliderWrapper>
-                        <Slider/>
-                    </SliderWrapper>
-                </ContentWrapper>
-                <Footer>
-                    <p>Footer</p>
-                </Footer>
-            </Layout>
+            <TopNav/>
+            <ContentWrapper>
+                <CardsWrapper>
+                    <Cards/>
+                </CardsWrapper>
+                <ImagesRowWrapper>
+                    <ImagesRow/>
+                </ImagesRowWrapper>
+                <SliderWrapper>
+                    <Slider/>
+                </SliderWrapper>
+            </ContentWrapper>
+            {/*<Layout>*/}
+            {/*    <Header>*/}
+            {/*        <TopNav/>*/}
+            {/*    </Header>*/}
+            {/*    <ContentWrapper>*/}
+            {/*        <CardsWrapper>*/}
+            {/*            <Cards/>*/}
+            {/*        </CardsWrapper>*/}
+            {/*        <ImagesRowWrapper>*/}
+            {/*            <ImagesRow/>*/}
+            {/*        </ImagesRowWrapper>*/}
+            {/*        <SliderWrapper>*/}
+            {/*            <Slider/>*/}
+            {/*        </SliderWrapper>*/}
+            {/*    </ContentWrapper>*/}
+            {/*    <Footer>*/}
+            {/*        <p>Footer</p>*/}
+            {/*    </Footer>*/}
+            {/*</Layout>*/}
         </>
     )
 };

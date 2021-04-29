@@ -28,18 +28,22 @@ const Image = styled.div<IImages>`
 const ImagesRow: React.FC = () => {
     return(
         <>
-            <Row gutter={[12,12]}>
-                <Col xl={{span: 6}} md={{span: 12}} xs={{span: 24}}>
-                    <Image img={office1} color={variables.primaryBlue}/>
-                </Col>
-                <Col xl={{span: 6}} md={{span: 12}} xs={{span: 24}}>
-                    <Image img={office2} color={variables.primaryYellow}/>
-                </Col>
-                <Col xl={{span: 6}} md={{span: 12}} xs={{span: 24}}>
-                    <Image img={office3} color={variables.secondaryYellow}/>
-                </Col>
-                <Col xl={{span: 6}} md={{span: 12}} xs={{span: 24}}>
-                    <Image img={office4} color={variables.secondaryBlue}/>
+            <Row>
+                <Col xl={{span: 20, offset: 2}} md={{span: 20, offset: 2}} sm={{span: 20, offset: 2}} xs={{span: 20, offset: 2}}>
+                    <Row gutter={[20,12]}>
+                        <Col xl={{span: 6}} md={{span: 12}} sm={{span: 12}} xs={{span: 24}}>
+                            <Image img={office1} color={variables.primaryBlue}/>
+                        </Col>
+                        <Col xl={{span: 6}} md={{span: 12}} sm={{span: 12}} xs={{span: 24}}>
+                            <Image img={office2} color={variables.primaryYellow}/>
+                        </Col>
+                        <Col xl={{span: 6}} md={{span: 12}} sm={{span: 12}} xs={{span: 24}}>
+                            <Image img={office3} color={variables.secondaryYellow}/>
+                        </Col>
+                        <Col xl={{span: 6}} md={{span: 12}} sm={{span: 12}} xs={{span: 24}}>
+                            <Image img={office4} color={variables.secondaryBlue}/>
+                        </Col>
+                    </Row>
                 </Col>
             </Row>
         </>
