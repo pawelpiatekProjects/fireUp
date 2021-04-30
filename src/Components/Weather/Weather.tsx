@@ -2,10 +2,10 @@ import React, {useState} from 'react'
 import TopNav from "../TopNav/TopNav";
 import axios from 'axios';
 import {Input, Row, Col, Card, Typography} from 'antd';
-import { AudioOutlined, CloudOutlined } from '@ant-design/icons';
-import {EmptyWeatherCard, WeatherCard, Temperature} from './WeatherStyles';
+import { AudioOutlined, CloudOutlined, AimOutlined } from '@ant-design/icons';
+import {WeatherWrapper, SearchInput, EmptyWeatherCard, Temperature, CardItem} from './WeatherStyles';
 
-const {Search} = Input;
+
 const {Title, Text} = Typography;
 
 const suffix = (
@@ -48,19 +48,20 @@ const getIconUrl = (icon: string) => {
 
 const Weather: React.FC = () => {
 
-    const [weatherInfo, setWeatherInfo] = useState({} as WeatherApiResponse)
+    const [weatherInfo, setWeatherInfo] = useState({} as WeatherApiResponse);
+    const [isLoading, setIsLoading] = useState(false);
 
     const onFetchWeatherData = async(city: string) => {
-
+        setIsLoading(true);
         try {
             const {data} = await axios.get<WeatherApiResponse>(getUrl(city));
 
             setWeatherInfo(data);
         } catch (e) {
             console.log(e);
+        } finally {
+            setIsLoading(false);
         }
-
-
     }
 
     const onSearch = async(value: string) => {
@@ -69,12 +70,11 @@ const Weather: React.FC = () => {
 
 
     return (
-        <>
+        <WeatherWrapper>
             <TopNav/>
             <Row align='middle'>
                 <Col xl={{span: 8, offset: 8}}>
-                    <h2>Weather</h2>
-                    <Search
+                    <SearchInput
                         placeholder="enter city name"
                         enterButton="Search"
                         size="large"
@@ -93,22 +93,25 @@ const Weather: React.FC = () => {
                             </Row>
                         </EmptyWeatherCard>
                     ): (
-                        <WeatherCard>
+                        <CardItem loading={isLoading}>
                             <Row>
                                 <Col flex={3}>
                                     <img src={getIconUrl(weatherInfo.weather[0].icon)} alt='Weather image'/>
-                                    <Title level={4}>{weatherInfo.weather[0].description}</Title>
-                                    <Text>{weatherInfo.name}</Text>
+                                    <Title type='secondary' level={4}>
+                                        {weatherInfo.weather[0].description.charAt(0).toUpperCase()
+                                        + weatherInfo.weather[0].description.slice(1)}
+                                    </Title>
+                                    <Text type="secondary" strong><AimOutlined/> {weatherInfo.name}</Text>
                                 </Col>
                                 <Col flex={2}>
                                     <Temperature>{weatherInfo.main.temp.toFixed(0)}</Temperature>
                                 </Col>
                             </Row>
-                        </WeatherCard>
+                        </CardItem>
                     )}
                 </Col>
             </Row>
-        </>
+        </WeatherWrapper>
 
     )
 };
