@@ -22,10 +22,17 @@ const Carousel: React.FC = () => {
     const [activeImages, setActiveImages] = useState([0, 1]);
     const [isAnimating, setIsAnimating] = useState(false);
 
+    const handlePopUpOpen = () => {
+        onOpenPopUp({
+            header: 'Lorem Ipsum',
+            message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec mi id lorem semper dapibus. Maecenas et diam felis. Maecenas iaculis vehicula justo et efficitur.'
+        });
+    }
+
     const swipeImagesLeft = () => {
         setIsAnimating(true);
         if(activeImages[1] === images.length - 1) {
-            onOpenPopUp();
+          handlePopUpOpen();
         }
         setActiveImages(prevState => {
             if (prevState[1] === images.length - 1) {
@@ -45,7 +52,7 @@ const Carousel: React.FC = () => {
     const swipeImagesRight = () => {
         setIsAnimating(true);
         if(activeImages[0] === images.length - 1) {
-            onOpenPopUp();
+            handlePopUpOpen();
         }
         setActiveImages(prevState => {
             if(prevState[0] === 0) {

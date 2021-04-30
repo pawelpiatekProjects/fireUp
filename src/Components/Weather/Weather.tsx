@@ -1,9 +1,10 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import TopNav from "../TopNav/TopNav";
 import axios from 'axios';
 import {Input, Row, Col, Card, Typography} from 'antd';
 import { AudioOutlined, CloudOutlined, AimOutlined } from '@ant-design/icons';
 import {WeatherWrapper, SearchInput, EmptyWeatherCard, Temperature, CardItem} from './WeatherStyles';
+import {PopUpContext} from "../../contexts/PopUpContext";
 
 
 const {Title, Text} = Typography;
@@ -48,6 +49,8 @@ const getIconUrl = (icon: string) => {
 
 const Weather: React.FC = () => {
 
+    const {onOpenPopUp} = useContext(PopUpContext)
+
     const [weatherInfo, setWeatherInfo] = useState({} as WeatherApiResponse);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -55,10 +58,13 @@ const Weather: React.FC = () => {
         setIsLoading(true);
         try {
             const {data} = await axios.get<WeatherApiResponse>(getUrl(city));
-
             setWeatherInfo(data);
         } catch (e) {
-            console.log(e);
+            onOpenPopUp({
+                header: 'City not found',
+                message: 'Make sure you have entered valid city name'
+            });
+            setWeatherInfo({} as WeatherApiResponse);
         } finally {
             setIsLoading(false);
         }

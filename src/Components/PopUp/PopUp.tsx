@@ -4,16 +4,16 @@ import {PopUpContext} from "../../contexts/PopUpContext";
 
 const PopUp: React.FC = () => {
 
-    const {isPopUpOpen, onClosePopUp} = useContext(PopUpContext);
+    const {isPopUpOpen, onClosePopUp, popUpConfig} = useContext(PopUpContext);
 
     return (
         <Modal
             visible={isPopUpOpen}
-            title='Lorem Ipsum'
+            title={popUpConfig.header}
             onOk={() => onClosePopUp()}
             onCancel={() => onClosePopUp()
             }>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec mi id lorem semper dapibus. Maecenas et diam felis. Maecenas iaculis vehicula justo et efficitur.</p>
+            <p>{popUpConfig.message}</p>
         </Modal>
     )
 };
