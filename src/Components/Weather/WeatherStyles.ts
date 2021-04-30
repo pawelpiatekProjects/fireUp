@@ -39,16 +39,30 @@ export const EmptyWeatherCard = styled(CardItem)`
   }
 `;
 
-export const Temperature = styled.div`
+export const WeatherImg = styled.img`
+  @media(max-width: ${variables.breakpoints.sm}) {
+    width: 10rem;
+  }
+`;
+
+export const Temperature = styled.h1`
   
   font-size: 10rem;
   position: relative;
   color: ${variables.primaryBlue};
+  
+  @media(max-width: ${variables.breakpoints.sm}) {
+    font-size: 7rem;
+  }
   
   &:after {
     content: 'o';
     position: absolute;
     font-size: 4rem;
     top: 2rem;
+
+    @media(max-width: ${variables.breakpoints.sm}) {
+      top: 1rem;
+    }
   }
 `;

@@ -3,7 +3,7 @@ import TopNav from "../TopNav/TopNav";
 import axios from 'axios';
 import {Input, Row, Col, Card, Typography} from 'antd';
 import { AudioOutlined, CloudOutlined, AimOutlined } from '@ant-design/icons';
-import {WeatherWrapper, SearchInput, EmptyWeatherCard, Temperature, CardItem} from './WeatherStyles';
+import {WeatherWrapper, SearchInput, EmptyWeatherCard, Temperature, CardItem, WeatherImg} from './WeatherStyles';
 import {PopUpContext} from "../../contexts/PopUpContext";
 
 
@@ -79,7 +79,7 @@ const Weather: React.FC = () => {
         <WeatherWrapper>
             <TopNav/>
             <Row align='middle'>
-                <Col xl={{span: 8, offset: 8}}>
+                <Col xl={{span: 12, offset: 6}} lg={{span: 12, offset: 6}} md={{span: 16, offset: 4}} sm={{span: 20, offset: 2}} xs={{span: 22, offset: 1}}>
                     <SearchInput
                         placeholder="enter city name"
                         enterButton="Search"
@@ -102,7 +102,7 @@ const Weather: React.FC = () => {
                         <CardItem loading={isLoading}>
                             <Row>
                                 <Col flex={3}>
-                                    <img src={getIconUrl(weatherInfo.weather[0].icon)} alt='Weather image'/>
+                                    <WeatherImg src={getIconUrl(weatherInfo.weather[0].icon)} alt='Weather image'/>
                                     <Title type='secondary' level={4}>
                                         {weatherInfo.weather[0].description.charAt(0).toUpperCase()
                                         + weatherInfo.weather[0].description.slice(1)}
