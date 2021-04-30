@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import {Row, Col} from 'antd';
 import {DoubleLeftOutlined, DoubleRightOutlined} from '@ant-design/icons';
 import {
@@ -11,8 +11,12 @@ import office1 from '../../../assets/images/office1.jpg'
 import office2 from '../../../assets/images/office2.jpg'
 import office3 from '../../../assets/images/office3.jpg'
 import office4 from '../../../assets/images/office4.jpg'
+import {PopUpContext} from "../../../contexts/PopUpContext";
 
 const Carousel: React.FC = () => {
+
+    const {onOpenPopUp} = useContext(PopUpContext);
+
     const images = [office1, office2, office3, office4];
 
     const [activeImages, setActiveImages] = useState([0, 1]);
@@ -20,6 +24,9 @@ const Carousel: React.FC = () => {
 
     const swipeImagesLeft = () => {
         setIsAnimating(true);
+        if(activeImages[1] === images.length - 1) {
+            onOpenPopUp();
+        }
         setActiveImages(prevState => {
             if (prevState[1] === images.length - 1) {
                 return [prevState[0] + 1, 0];
@@ -37,6 +44,9 @@ const Carousel: React.FC = () => {
 
     const swipeImagesRight = () => {
         setIsAnimating(true);
+        if(activeImages[0] === images.length - 1) {
+            onOpenPopUp();
+        }
         setActiveImages(prevState => {
             if(prevState[0] === 0) {
                 return [images.length - 1, prevState[1] - 1];

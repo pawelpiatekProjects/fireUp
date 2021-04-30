@@ -16,7 +16,7 @@ const Cards: React.FC = () => {
                     <Col xl={{span: 6, offset: 4}} lg={{span: 6, offset: 2}} md={{span: 22, offset: 1}} sm={{span: 22, offset: 1}} xs={{span: 22, offset: 1}}>
                         <Row gutter={[10,10]}>
                             {cardsData.map((card, id) => (
-                                <Col lg={{span: 24}} md={{span: 6}} sm={{span: 6}} xs={{span:24}}>
+                                <Col lg={{span: 24}} md={{span: 6}} sm={{span: 6}} xs={{span:24}} key={id}>
                                     <CardButton
                                         isActive={id === activeCard}
                                         background={card.style?.background!}
