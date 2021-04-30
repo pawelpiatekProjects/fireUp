@@ -21,4 +21,18 @@ export const EmptyWeatherCard = styled(CardItem)`
 `;
 
 export const WeatherCard = styled(CardItem)`
+    
+`;
+
+export const Temperature = styled.div`
+  
+  font-size: 10rem;
+  position: relative;
+  
+  &:after {
+    content: 'o';
+    position: absolute;
+    font-size: 4rem;
+    top: 2rem;
+  }
 `;

@@ -3,10 +3,10 @@ import TopNav from "../TopNav/TopNav";
 import axios from 'axios';
 import {Input, Row, Col, Card, Typography} from 'antd';
 import { AudioOutlined, CloudOutlined } from '@ant-design/icons';
-import {EmptyWeatherCard, WeatherCard} from './WeatherStyles';
+import {EmptyWeatherCard, WeatherCard, Temperature} from './WeatherStyles';
 
 const {Search} = Input;
-const {Title} = Typography;
+const {Title, Text} = Typography;
 
 const suffix = (
     <AudioOutlined
@@ -72,7 +72,7 @@ const Weather: React.FC = () => {
         <>
             <TopNav/>
             <Row align='middle'>
-                <Col xl={{span: 12, offset: 6}}>
+                <Col xl={{span: 8, offset: 8}}>
                     <h2>Weather</h2>
                     <Search
                         placeholder="enter city name"
@@ -94,14 +94,14 @@ const Weather: React.FC = () => {
                         </EmptyWeatherCard>
                     ): (
                         <WeatherCard>
-                            <Title level={2}>Weather in: {weatherInfo.name}</Title>
                             <Row>
-                                <Col lg={{span: 12, offset: 6}}>
+                                <Col flex={3}>
+                                    <img src={getIconUrl(weatherInfo.weather[0].icon)} alt='Weather image'/>
                                     <Title level={4}>{weatherInfo.weather[0].description}</Title>
+                                    <Text>{weatherInfo.name}</Text>
                                 </Col>
-                                <Col lg={{span: 12, offset: 6}}>
-                                    <Title level={3}>{weatherInfo.main.temp}</Title>
-                                    <img src={getIconUrl(weatherInfo.weather[0].icon)}/>
+                                <Col flex={2}>
+                                    <Temperature>{weatherInfo.main.temp.toFixed(0)}</Temperature>
                                 </Col>
                             </Row>
                         </WeatherCard>
