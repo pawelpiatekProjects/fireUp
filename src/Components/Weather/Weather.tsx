@@ -1,80 +1,20 @@
-import React, {useContext, useState} from 'react'
+import React from "react";
+import {CardItem, EmptyWeatherCard, SearchInput, Temperature, WeatherImg, WeatherWrapper} from "./WeatherStyles";
 import TopNav from "../TopNav/TopNav";
-import axios from 'axios';
-import {Input, Row, Col, Card, Typography} from 'antd';
-import { AudioOutlined, CloudOutlined, AimOutlined } from '@ant-design/icons';
-import {WeatherWrapper, SearchInput, EmptyWeatherCard, Temperature, CardItem, WeatherImg} from './WeatherStyles';
-import {PopUpContext} from "../../contexts/PopUpContext";
-
+import {Col, Row, Typography} from "antd";
+import {AimOutlined, CloudOutlined} from "@ant-design/icons";
+import {WeatherData} from '../../shared/interfaces';
 
 const {Title, Text} = Typography;
 
-const suffix = (
-    <AudioOutlined
-        style={{
-            fontSize: 16,
-            color: '#1890ff',
-        }}
-    />
-);
-
-interface WeatherApiResponse {
-    main: {
-        feels_like: number;
-        humidity: number;
-        pressure: number;
-        temp: number;
-        temp_max: number;
-        temp_min: number;
-    },
-    weather: {
-        description: string;
-        icon: string;
-        id: number;
-        main: string;
-    }[];
-    name: string;
+interface Props {
+    onSearch: (value: string) => void;
+    weatherInfo: WeatherData;
+    isLoading: boolean;
+    getIconUrl: (icon: string) => string;
 }
 
-
-const WEATHER_API_KEY = 'e7f9e8da664624d4f048d9c25a592a01';
-
-const getUrl = (city: string) => {
-    return `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${WEATHER_API_KEY}`;
-}
-
-const getIconUrl = (icon: string) => {
-    return`http://openweathermap.org/img/wn/${icon}@4x.png`;
-}
-
-const Weather: React.FC = () => {
-
-    const {onOpenPopUp} = useContext(PopUpContext)
-
-    const [weatherInfo, setWeatherInfo] = useState({} as WeatherApiResponse);
-    const [isLoading, setIsLoading] = useState(false);
-
-    const onFetchWeatherData = async(city: string) => {
-        setIsLoading(true);
-        try {
-            const {data} = await axios.get<WeatherApiResponse>(getUrl(city));
-            setWeatherInfo(data);
-        } catch (e) {
-            onOpenPopUp({
-                header: 'City not found',
-                message: 'Make sure you have entered valid city name'
-            });
-            setWeatherInfo({} as WeatherApiResponse);
-        } finally {
-            setIsLoading(false);
-        }
-    }
-
-    const onSearch = async(value: string) => {
-        await onFetchWeatherData(value);
-    }
-
-
+const Weather: React.FC<Props> = ({onSearch, weatherInfo, isLoading, getIconUrl}) => {
     return (
         <WeatherWrapper>
             <TopNav/>
@@ -84,7 +24,6 @@ const Weather: React.FC = () => {
                         placeholder="enter city name"
                         enterButton="Search"
                         size="large"
-                        suffix={suffix}
                         onSearch={onSearch}
                     />
                     {Object.keys(weatherInfo).length === 0 ? (
@@ -102,7 +41,7 @@ const Weather: React.FC = () => {
                         <CardItem loading={isLoading}>
                             <Row>
                                 <Col flex={3}>
-                                    <WeatherImg src={getIconUrl(weatherInfo.weather[0].icon)} alt='Weather image'/>
+                                    <WeatherImg src={getIconUrl(weatherInfo.weather[0].icon)} alt='WeatherController image'/>
                                     <Title type='secondary' level={4}>
                                         {weatherInfo.weather[0].description.charAt(0).toUpperCase()
                                         + weatherInfo.weather[0].description.slice(1)}
@@ -118,8 +57,7 @@ const Weather: React.FC = () => {
                 </Col>
             </Row>
         </WeatherWrapper>
-
     )
 };
 
-export default Weather;
+export default Weather
