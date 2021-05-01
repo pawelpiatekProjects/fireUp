@@ -4,14 +4,23 @@ import {NavLink, useLocation} from 'react-router-dom';
 import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import {useCookies} from "react-cookie";
+import {useHistory} from "react-router";
+
+const {SubMenu} = Menu;
 
 const TopNav: React.FC = () => {
     const location = useLocation().pathname.split('/')[1];
     console.log('location', location);
-
-    const [cookies] = useCookies(['token']);
+    const history = useHistory();
+    const [cookies, setCookie, removeCookie] = useCookies(['token']);
     const {token} = cookies;
     console.log(token);
+
+    // TODO move to controller
+    const handleLogOut = () => {
+        removeCookie('token');
+        history.push('/signIn');
+    }
 
     return (
         <Menu mode='horizontal' selectedKeys={[location]}>
@@ -27,11 +36,22 @@ const TopNav: React.FC = () => {
             <Menu.Item key='weather'>
                 <NavLink to='/weather'>Weather</NavLink>
             </Menu.Item>
-            <Menu.Item key='avatar'>
-                <NavLink to={token ? '/account' : '/signIn'}>
-                    <Avatar size="small" icon={<UserOutlined />} />
-                </NavLink>
-            </Menu.Item>
+            {token ? (
+                <SubMenu icon={<UserOutlined />}>
+                    <Menu.ItemGroup>
+                        <Menu.Item key="accountGroup">
+                            <NavLink to='/account'>Account</NavLink>
+                        </Menu.Item>
+                        <Menu.Item key="logOut" onClick={() => handleLogOut()}>Log Out</Menu.Item>
+                    </Menu.ItemGroup>
+                </SubMenu>
+            ): (
+                <Menu.Item key='account'>
+                    <NavLink to='/signIn'>
+                        <UserOutlined/>
+                    </NavLink>
+                </Menu.Item>
+            )}
         </Menu>
     )
 };
