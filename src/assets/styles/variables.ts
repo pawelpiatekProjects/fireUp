@@ -12,6 +12,7 @@ export const primaryGray = '#eee';
 
 // Box shadow
 export const boxShadowPrimary = `0 0 18px -4px ${secondaryBlue}`;
+export const boxShadowSecondary = `0px 0px 11px -2px ${secondaryBlue}`
 
 
 // Ant design Breakpoints

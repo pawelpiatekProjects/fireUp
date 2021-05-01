@@ -9,7 +9,7 @@ import {
 import Cards from "./Cards/Cards";
 import ImagesRow from "./ImagesRow/ImagesRow";
 import Carousel from "./Carousel/Carousel";
-import {Col, Row} from "antd";
+import {Col, Row, Space} from "antd";
 import BottomCard from "../BottomCard/BottomCard";
 
 
@@ -19,39 +19,38 @@ const Home: React.FC = () => {
         <>
             <TopNav/>
             <ContentWrapper>
-                <CardsWrapper>
-                    <Cards/>
-                </CardsWrapper>
-                <ImagesRowWrapper>
-                    <ImagesRow/>
-                </ImagesRowWrapper>
-                <Row >
-                    <Col xl={{span: 24}} lg={{span: 24}}>
-                        <Row gutter={[0,20]}>
-                            <Col
-                                xl={{span: 11}}
-                                lg={{span:20, offset: 2}}
-                                md={{span:20, offset: 2}}
-                                sm={{span:20, offset: 2}}
-                                xs={{span:20, offset: 2}}
-                            >
-                                <Carousel/>
-                            </Col>
-                            <Col
-                                xl={{span: 8, offset: 1}}
-                                lg={{span: 20, offset: 2}}
-                                md={{span: 20, offset: 2}}
-                                sm={{span: 20, offset: 2}}
-                                xs={{span: 20, offset: 2}}
-                            >
-                                <BottomCard/>
-                            </Col>
-                        </Row>
-                    </Col>
-                </Row>
-
-
-
+                <Space direction='vertical' size={40}>
+                    <CardsWrapper>
+                        <Cards/>
+                    </CardsWrapper>
+                    <ImagesRowWrapper>
+                        <ImagesRow/>
+                    </ImagesRowWrapper>
+                    <Row >
+                        <Col xl={{span: 24}} lg={{span: 24}}>
+                            <Row gutter={[0,20]}>
+                                <Col
+                                    xl={{span: 11}}
+                                    lg={{span:20, offset: 2}}
+                                    md={{span:20, offset: 2}}
+                                    sm={{span:20, offset: 2}}
+                                    xs={{span:20, offset: 2}}
+                                >
+                                    <Carousel/>
+                                </Col>
+                                <Col
+                                    xl={{span: 8, offset: 1}}
+                                    lg={{span: 20, offset: 2}}
+                                    md={{span: 20, offset: 2}}
+                                    sm={{span: 20, offset: 2}}
+                                    xs={{span: 20, offset: 2}}
+                                >
+                                    <BottomCard/>
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Row>
+                </Space>
             </ContentWrapper>
         </>
     )

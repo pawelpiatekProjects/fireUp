@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './Components/App/App';
 import reportWebVitals from './reportWebVitals';
-import 'antd/dist/antd.css'
+import 'antd/dist/antd.css';
+import {worker} from "./mocks/browser";
+
+worker.start();
 
 ReactDOM.render(
   <React.StrictMode>

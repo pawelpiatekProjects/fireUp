@@ -6,6 +6,7 @@ import WeatherController from "../Weather/WeatherController";
 import Home from "../Home/Home";
 import PopUpContextProvider from "../../contexts/PopUpContext";
 import PopUp from "../PopUp/PopUp";
+import SignInController from "../SignIn/SignInController";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
                 <PopUp/>
                 <BrowserRouter>
                     <Switch>
+                        <Route path='/signIn' exact component={SignInController}/>
                         <Route path='/weather' exact component={WeatherController}/>
                         <Route path='/home' exact component={Home}/>
                         <Route render={() => <Redirect to='/home'/>}/>

@@ -22,7 +22,9 @@ const TopNav: React.FC = () => {
                 <NavLink to='/weather'>Weather</NavLink>
             </Menu.Item>
             <Menu.Item key='avatar'>
-                <Avatar size="small" icon={<UserOutlined />} />
+                <NavLink to='/signIn'>
+                    <Avatar size="small" icon={<UserOutlined />} />
+                </NavLink>
             </Menu.Item>
         </Menu>
     )
