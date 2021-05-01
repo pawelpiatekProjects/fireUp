@@ -1,4 +1,5 @@
-import {User} from "../shared/interfaces";
+import {User} from './shared/interfaces';
+import {compare} from './shared/token';
 
 export const users: User[] = [
     {
@@ -39,4 +40,8 @@ export const onSignIn = (email: string, password: string) => {
     }
 
     return response;
+}
+
+export const getUser = (token: string) => {
+    return users.find(user => compare(token, user.email));
 }
