@@ -20,9 +20,10 @@ const SignInSchema = Yup.object().shape({
 
 interface Props {
     handleSubmit: (email: string, password: string) => void;
+    isLoading: boolean;
 }
 
-const SignInForm: React.FC<Props> = ({handleSubmit}) => {
+const SignInForm: React.FC<Props> = ({handleSubmit, isLoading}) => {
     return (
         <Formik
             initialValues={{
@@ -31,7 +32,7 @@ const SignInForm: React.FC<Props> = ({handleSubmit}) => {
             }}
             validationSchema={SignInSchema}
             onSubmit={({email, password}) => {
-                handleSubmit(email, password);
+                 handleSubmit(email, password);
             }}
         >
             {({errors, touched, isValid, dirty}) => (
@@ -57,7 +58,15 @@ const SignInForm: React.FC<Props> = ({handleSubmit}) => {
                                         )}</Field>
                                         {errors.password && touched.password ? <ErrorMessage type='danger'>{errors.password}</ErrorMessage> : null}
 
-                                        <Button htmlType="submit" block type='primary' disabled={!(isValid && dirty)}>Sign in</Button>
+                                        <Button
+                                            loading={isLoading}
+                                            htmlType="submit"
+                                            block
+                                            type='primary'
+                                            disabled={!(isValid && dirty)}
+                                        >
+                                            Sign in
+                                        </Button>
                                     </SpaceWrapper>
                                 </Form>
                             </SpaceWrapper>

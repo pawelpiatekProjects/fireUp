@@ -1,6 +1,6 @@
 import {rest} from 'msw';
 import {users, onSignIn} from './fixtures';
-import {User} from "../shared/interfaces";
+
 
 interface SignInBody {
     email: string;
@@ -9,7 +9,7 @@ interface SignInBody {
 
 interface SignInResponse {
     message: string;
-    user: User;
+    token?: string;
 }
 
 export const handlers = [
@@ -17,23 +17,23 @@ export const handlers = [
         return res(ctx.status(200), ctx.json(users));
     }),
     rest.post<SignInBody, SignInResponse>('/signIn', (req, res, ctx) => {
-
-        const handlerResponse = onSignIn(req.body.email, req.body.password);
+        const {email, password} = req.body;
+        const handlerResponse = onSignIn(email, password);
 
         if(Object.keys(handlerResponse.data).length > 0) {
+            const fakeToken = email.toLowerCase() + password.toLowerCase();
             return res(
                 ctx.status(200),
                 ctx.json({
                     message: handlerResponse.message,
-                    user: handlerResponse.data
+                    token: fakeToken
                 } as SignInResponse)
             )
         } else {
             return res(
-                ctx.status(400),
+                ctx.status(403),
                 ctx.json({
-                    message: handlerResponse.message,
-                    user: handlerResponse.data
+                    message: handlerResponse.message
                 } as SignInResponse)
             )
         }

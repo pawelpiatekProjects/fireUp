@@ -5,9 +5,10 @@ import {Row, Col, Space} from 'antd';
 
 interface Props {
     handleSubmit: (email: string, password: string) => void;
+    isLoading: boolean;
 }
 
-const SignIn: React.FC<Props> = ({handleSubmit}) => {
+const SignIn: React.FC<Props> = ({handleSubmit, isLoading}) => {
     return (
         <>
             <TopNav/>
@@ -19,7 +20,7 @@ const SignIn: React.FC<Props> = ({handleSubmit}) => {
                     sm={{span: 20, offset: 2}}
                     xs={{span: 22, offset: 1}}
                 >
-                    <SignInForm handleSubmit={handleSubmit}/>
+                    <SignInForm handleSubmit={handleSubmit} isLoading={isLoading}/>
                 </Col>
             </Row>
         </>
