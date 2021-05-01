@@ -3,10 +3,16 @@ import { Menu } from 'antd';
 import {NavLink, useLocation} from 'react-router-dom';
 import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+import {useCookies} from "react-cookie";
 
 const TopNav: React.FC = () => {
     const location = useLocation().pathname.split('/')[1];
     console.log('location', location);
+
+    const [cookies] = useCookies(['token']);
+    const {token} = cookies;
+    console.log(token);
+
     return (
         <Menu mode='horizontal' selectedKeys={[location]}>
             <Menu.Item key='home'>
@@ -22,7 +28,7 @@ const TopNav: React.FC = () => {
                 <NavLink to='/weather'>Weather</NavLink>
             </Menu.Item>
             <Menu.Item key='avatar'>
-                <NavLink to='/signIn'>
+                <NavLink to={token ? '/account' : '/signIn'}>
                     <Avatar size="small" icon={<UserOutlined />} />
                 </NavLink>
             </Menu.Item>
