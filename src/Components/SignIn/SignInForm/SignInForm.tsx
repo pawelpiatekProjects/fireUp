@@ -31,7 +31,6 @@ const SignInForm: React.FC<Props> = ({handleSubmit}) => {
             }}
             validationSchema={SignInSchema}
             onSubmit={({email, password}) => {
-                console.log('test');
                 handleSubmit(email, password);
             }}
         >
