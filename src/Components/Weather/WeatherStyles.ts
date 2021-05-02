@@ -10,7 +10,7 @@ export const WeatherWrapper = styled.div`
   background-image:  url(${weather});
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 100%;
 `;
 
 export const SearchInput = styled(Search)`

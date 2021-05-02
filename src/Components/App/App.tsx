@@ -8,6 +8,8 @@ import PopUpContextProvider from "../../contexts/PopUpContext";
 import PopUp from "../PopUp/PopUp";
 import SignInController from "../SignIn/SignInController";
 import AccountController from "../Account/AccountController";
+import Navigation from "../Navigation/Navigation";
+import {Wrapper, NavWrapper, ContentWrapper} from './AppStyles';
 
 function App() {
 
@@ -18,13 +20,20 @@ function App() {
             <PopUpContextProvider>
                 <PopUp/>
                 <BrowserRouter>
-                    <Switch>
-                        <Route path='/account' exact component={AccountController}/>
-                        <Route path='/signIn' exact component={SignInController}/>
-                        <Route path='/weather' exact component={WeatherController}/>
-                        <Route path='/home' exact component={Home}/>
-                        <Route render={() => <Redirect to='/home'/>}/>
-                    </Switch>
+                    <Wrapper>
+                        <NavWrapper>
+                            <Navigation/>
+                        </NavWrapper>
+                        <ContentWrapper>
+                            <Switch>
+                                <Route path='/account' exact component={AccountController}/>
+                                <Route path='/signIn' exact component={SignInController}/>
+                                <Route path='/weather' exact component={WeatherController}/>
+                                <Route path='/home' exact component={Home}/>
+                                <Route render={() => <Redirect to='/home'/>}/>
+                            </Switch>
+                        </ContentWrapper>
+                    </Wrapper>
                 </BrowserRouter>
             </PopUpContextProvider>
         </>

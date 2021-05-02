@@ -17,7 +17,6 @@ interface Props {
 const Weather: React.FC<Props> = ({onSearch, weatherInfo, isLoading, getIconUrl}) => {
     return (
         <WeatherWrapper>
-            <TopNav/>
             <Row align='middle'>
                 <Col xl={{span: 12, offset: 6}} lg={{span: 12, offset: 6}} md={{span: 16, offset: 4}} sm={{span: 20, offset: 2}} xs={{span: 22, offset: 1}}>
                     <SearchInput

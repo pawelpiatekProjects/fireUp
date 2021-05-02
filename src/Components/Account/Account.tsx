@@ -1,20 +1,21 @@
 import React from "react";
 import TopNav from "../TopNav/TopNav";
 import {User} from '../../mocks/shared/interfaces';
-import {Row, Col, Card, Avatar, Divider, Typography} from 'antd';
+import {Row, Col, Card, Avatar, Divider, Typography, Button} from 'antd';
+import {LogoutOutlined} from '@ant-design/icons'
 import {AccountWrapper,AccountCard} from './AccountStyles';
 
 const { Meta } = Card;
 const {Paragraph, Text} = Typography;
 
 interface Props {
-    userData: User
+    userData: User;
+    onLogOut: () => void;
 }
 
-const Account: React.FC<Props> = ({userData}) => {
+const Account: React.FC<Props> = ({userData, onLogOut}) => {
     return (
         <AccountWrapper>
-            <TopNav/>
             <Row>
                 <Col
                     xl={{span: 12, offset: 6}}
@@ -23,7 +24,16 @@ const Account: React.FC<Props> = ({userData}) => {
                     sm={{span: 20, offset: 2}}
                     xs={{span: 22, offset: 1}}
                 >
-                    <AccountCard loading={userData.login === undefined}>
+                    <AccountCard loading={userData.login === undefined} actions={[
+                        <Button
+                            key='logOut'
+                            type='primary'
+                            onClick={() => onLogOut()}
+                        >
+                            Log Out<LogoutOutlined />
+                        </Button>
+
+                    ]}>
                         <Meta
                             avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                             title={`Hi: ${userData.login}`}

@@ -12,7 +12,6 @@ interface Props {
 const SignIn: React.FC<Props> = ({handleSubmit, isLoading}) => {
     return (
         <SignInWrapper>
-            <TopNav/>
             <Row>
                 <Col
                     xxl={{span: 6, offset: 9}}
