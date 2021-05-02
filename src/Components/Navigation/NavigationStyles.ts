@@ -1,15 +1,71 @@
 import styled from "styled-components";
 import * as variables from '../../assets/styles/variables';
 
+interface ISideDrawer {
+    isOpen: boolean;
+}
+
 export const NavigationWrapper = styled.nav`
   width: 100%;
   position: relative;
-  //top: 0;
-  //left: 0;
   background: ${variables.colorLight};
   z-index: 10;
   box-shadow: ${variables.boxShadowSecondary};
+  height: 100%;
+`;
+
+export const NavigationLarge = styled.div`
+  @media(max-width: ${variables.breakpoints.lg}) {
+    display: none;
+  }
+`;
+
+export const NavigationSmall = styled.div`
+  display: none;
+  height: 100%;
+  @media(max-width: ${variables.breakpoints.lg}) {
+    width: 20%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-left: 3rem;
+    font-size: 2rem;
+  }
+`;
+
+export const SideDrawer = styled.div<ISideDrawer>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 30%;
+  background: ${variables.colorLight};
+  box-shadow: ${variables.boxShadowSecondary};
+  padding: 3rem;
+  transition: transform .3s;
+  transform: ${props => props.isOpen ? 'translateX(0)' : 'translateX(-200rem)'};
   
+  @media(max-width: ${variables.breakpoints.sm}) {
+    width: 50%;
+  }
+  
+`;
+
+export const SideDrawerNavigation = styled.ul`
+  list-style: none;
+  margin-top: 3rem;
+`;
+
+export const SideDrawerNavigationItem = styled.li`
+  margin: 1rem 0;
+  a{
+    font-size: 2rem;
+    color: ${variables.secondaryGray};
+    
+    svg {
+      margin-right: .75rem;
+    }
+  }
 `;
 
 export const Nav = styled.ul`

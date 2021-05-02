@@ -1,18 +1,29 @@
-import React from "react";
-import {NavLink, useLocation} from 'react-router-dom';
+import React, {useState, useEffect} from "react";
+import {NavLink} from 'react-router-dom';
 import {
     NavigationWrapper,
     Nav,
     NavItem,
-    NavAccount
+    NavAccount,
+    NavigationLarge,
+    NavigationSmall,
+    SideDrawer,
+    SideDrawerNavigation,
+    SideDrawerNavigationItem
 } from './NavigationStyles';
 import * as variables from '../../assets/styles/variables';
-import {UserOutlined} from "@ant-design/icons";
-import {useHistory} from "react-router";
+import {UserOutlined, MenuOutlined, CloseOutlined, HomeOutlined, CloudOutlined, ProfileOutlined} from "@ant-design/icons";
 import {useCookies} from "react-cookie";
+import {useHistory} from "react-router";
 
 
 const Navigation: React.FC = () => {
+
+    const [isSideDrawerOpen, setIsSideDrawerOpen] = useState(false);
+
+    const toggleSideDrawer = () => {
+        setIsSideDrawerOpen(prevState => !prevState)
+    }
 
     const activeStyle = {
         background: variables.secondaryYellow,
@@ -23,42 +34,68 @@ const Navigation: React.FC = () => {
         color: variables.secondaryYellow
     }
 
-    const location = useLocation().pathname.split('/')[1];
-    console.log('location', location);
-    const history = useHistory();
-
-    const [cookies, setCookie, removeCookie] = useCookies(['token']);
+    const [cookies] = useCookies(['token']);
     const {token} = cookies;
 
 
 
     return (
         <NavigationWrapper>
-            <Nav>
-                <NavItem>
-                    <NavLink to='/home' activeStyle={activeStyle}>HOME</NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink to='#' >MENU2</NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink to='#' >MENU3</NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink to='/weather' activeStyle={activeStyle}>WEATHER</NavLink>
-                </NavItem>
-            </Nav>
-            <NavAccount>
-                {token ? (
-                    <NavLink to='/account' activeStyle={accountActiveStyle}>
-                        <UserOutlined/>
-                    </NavLink>
-                ): (
-                    <NavLink to='/signIn' activeStyle={accountActiveStyle}>
-                        <UserOutlined/>
-                    </NavLink>
-                )}
-            </NavAccount>
+            <NavigationLarge>
+                <Nav>
+                    <NavItem>
+                        <NavLink to='/home' activeStyle={activeStyle}>HOME</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink to='#' >MENU2</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink to='#' >MENU3</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink to='/weather' activeStyle={activeStyle}>WEATHER</NavLink>
+                    </NavItem>
+                </Nav>
+                <NavAccount>
+                    {token ? (
+                        <NavLink to='/account' activeStyle={accountActiveStyle}>
+                            <UserOutlined/>
+                        </NavLink>
+                    ): (
+                        <NavLink to='/signIn' activeStyle={accountActiveStyle}>
+                            <UserOutlined/>
+                        </NavLink>
+                    )}
+                </NavAccount>
+            </NavigationLarge>
+            <NavigationSmall>
+                <MenuOutlined onClick={()=> toggleSideDrawer()}/>
+            </NavigationSmall>
+            <SideDrawer isOpen={isSideDrawerOpen}>
+                <CloseOutlined onClick={()=> toggleSideDrawer()}/>
+                <SideDrawerNavigation>
+                    <SideDrawerNavigationItem>
+                        <NavLink to='/home' onClick={() => toggleSideDrawer()}><HomeOutlined/>Home</NavLink>
+                    </SideDrawerNavigationItem>
+                    <SideDrawerNavigationItem>
+                        <NavLink to='#'><ProfileOutlined/>Menu2</NavLink>
+                    </SideDrawerNavigationItem>
+                    <SideDrawerNavigationItem>
+                        <NavLink to='#'><ProfileOutlined/>Menu3</NavLink>
+                    </SideDrawerNavigationItem>
+                    <SideDrawerNavigationItem>
+                        <NavLink to='/weather' onClick={() => toggleSideDrawer()}><CloudOutlined/>Weather</NavLink>
+                    </SideDrawerNavigationItem>
+                    <SideDrawerNavigationItem>
+                        {token ? (
+                            <NavLink to='/account' onClick={() => toggleSideDrawer()}><UserOutlined/>Account</NavLink>
+                        ): (
+                            <NavLink to='/signIn' onClick={() => toggleSideDrawer()}><UserOutlined/>Account</NavLink>
+                        )}
+
+                    </SideDrawerNavigationItem>
+                </SideDrawerNavigation>
+            </SideDrawer>
         </NavigationWrapper>
     )
 };
