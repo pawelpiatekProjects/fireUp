@@ -4,6 +4,7 @@ import {PopUpContext} from "../../contexts/PopUpContext";
 import Weather from "./Weather";
 import {WeatherData} from '../../shared/interfaces';
 
+//TODO: move API key to env
 const WEATHER_API_KEY = 'e7f9e8da664624d4f048d9c25a592a01';
 
 const getUrl = (city: string) => {

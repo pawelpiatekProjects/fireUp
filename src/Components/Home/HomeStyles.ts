@@ -28,3 +28,8 @@ export const CarouselWrapper = styled.div`
 
 `;
 
+export const Footer = styled.div`
+  height: 5rem;
+  background: ${variables.primaryYellow};
+`;
+

@@ -4,7 +4,8 @@ import {
     ContentWrapper,
     CardsWrapper,
     ImagesRowWrapper,
-    CarouselWrapper
+    CarouselWrapper,
+    Footer
 } from './HomeStyles';
 import Cards from "./Cards/Cards";
 import ImagesRow from "./ImagesRow/ImagesRow";
@@ -19,7 +20,7 @@ const Home: React.FC = () => {
         <>
             <TopNav/>
             <ContentWrapper>
-                <Space direction='vertical' size={40}>
+                <Space direction='vertical' size={60}>
                     <CardsWrapper>
                         <Cards/>
                     </CardsWrapper>
@@ -48,6 +49,11 @@ const Home: React.FC = () => {
                                     <BottomCard/>
                                 </Col>
                             </Row>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xl={{span: 24}} lg={{span: 24}} md={{span: 24}} sm={{span: 24}} xs={{span: 24}}>
+                            <Footer/>
                         </Col>
                     </Row>
                 </Space>
