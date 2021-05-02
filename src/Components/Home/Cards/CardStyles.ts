@@ -26,10 +26,13 @@ export const CardElement = styled(Card)`
 export const CardImg = styled.img`
   width: 40rem;
   position: absolute;
-  bottom: 0;
-  left: 30%;
+  bottom: -2rem;
+  left: 40%;
   z-index: 1;
-  transform:  rotate(45deg) ;
+  
+  @media(max-width: ${variables.breakpoints.lg}) {
+    display: none;
+  }
   
 `;
 

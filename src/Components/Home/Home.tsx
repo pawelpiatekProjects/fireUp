@@ -19,7 +19,7 @@ const Home: React.FC = () => {
     return (
         <>
             <ContentWrapper>
-                <Space direction='vertical' size={60}>
+                <Space direction='vertical' size={80}>
                     <CardsWrapper>
                         <Cards/>
                     </CardsWrapper>

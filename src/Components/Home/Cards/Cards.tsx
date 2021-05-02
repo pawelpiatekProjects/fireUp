@@ -29,14 +29,14 @@ const Cards: React.FC = () => {
                             ))}
                         </Row>
                     </Col>
-                    <Col xl={{span: 10}} lg={{span: 10, offset: 2}} md={{span: 22, offset: 1}} sm={{span: 22, offset: 1}} xs={{span: 22, offset: 1}}>
+                    <Col xl={{span: 8}} lg={{span: 10, offset: 2}} md={{span: 22, offset: 1}} sm={{span: 22, offset: 1}} xs={{span: 22, offset: 1}}>
                         <CardWrapper>
                             <CardElement>
                                 <Title level={4}>{cardsData[activeCard].cardTitle}</Title>
                                 <Text>{cardsData[activeCard].cardContent}</Text>
                             </CardElement>
                             {/*TODO: add flower*/}
-                            {/*<CardImg src={flower}/>*/}
+                            <CardImg src={flower}/>
                         </CardWrapper>
                     </Col>
                 </MainRow>

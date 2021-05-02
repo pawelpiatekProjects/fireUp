@@ -13,10 +13,13 @@ export const ContentWrapper = styled(Content)`
 `;
 
 export const CardsWrapper = styled.div`
-  //padding: 8rem 0;
+  padding: 5rem 0;
   margin-bottom: 5rem;
   background: ${variables.primaryGray};
-  //height: 50rem;
+  
+  @media(max-width: ${variables.breakpoints.md}) {
+    padding: 0;
+  }
 `;
 
 export const ImagesRowWrapper = styled.div`
