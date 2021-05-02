@@ -7,9 +7,11 @@ import Home from "../Home/Home";
 import PopUpContextProvider from "../../contexts/PopUpContext";
 import PopUp from "../PopUp/PopUp";
 import SignInController from "../SignIn/SignInController";
-import Account from "../Account/Account";
+import AccountController from "../Account/AccountController";
 
 function App() {
+
+
   return (
         <>
             <GlobalStyle/>
@@ -17,7 +19,7 @@ function App() {
                 <PopUp/>
                 <BrowserRouter>
                     <Switch>
-                        <Route path='/account' exact component={Account}/>
+                        <Route path='/account' exact component={AccountController}/>
                         <Route path='/signIn' exact component={SignInController}/>
                         <Route path='/weather' exact component={WeatherController}/>
                         <Route path='/home' exact component={Home}/>

@@ -1,42 +1,19 @@
-import React, {useContext, useEffect, useState} from "react";
+import React from "react";
 import TopNav from "../TopNav/TopNav";
-import axios from "axios";
 import {User} from '../../mocks/shared/interfaces';
-import {Row, Col, Card, Avatar} from 'antd';
-import {useHistory} from "react-router";
-import {PopUpContext} from "../../contexts/PopUpContext";
-import account from '../../assets/images/account.png';
+import {Row, Col, Card, Avatar, Divider, Typography} from 'antd';
+import {AccountWrapper,AccountCard} from './AccountStyles';
 
 const { Meta } = Card;
+const {Paragraph, Text} = Typography;
 
-const Account: React.FC = () => {
+interface Props {
+    userData: User
+}
 
-    const [userData, setUserData] = useState({} as User);
-    const history = useHistory();
-    const {onOpenPopUp} = useContext(PopUpContext);
-
-    const fetchUserData = async() => {
-        try {
-            const {data: {user}} = await axios.get<{user: User}>('/user');
-            console.log(user);
-            setUserData(user);
-        } catch (e) {
-            //TODO add error handling
-            console.log(e);
-            onOpenPopUp({
-                header: 'Authentication error',
-                message: 'Authentication data are invalid'
-            });
-            history.push('/signIn');
-        }
-    }
-
-    useEffect(() => {
-        fetchUserData();
-    }, []);
-
+const Account: React.FC<Props> = ({userData}) => {
     return (
-        <>
+        <AccountWrapper>
             <TopNav/>
             <Row>
                 <Col
@@ -46,24 +23,28 @@ const Account: React.FC = () => {
                     sm={{span: 20, offset: 2}}
                     xs={{span: 22, offset: 1}}
                 >
-
-                    <Card
-                        cover={
-                            <img
-                                alt="example"
-                                src={account}
-                            />
-                        }
-                    >
+                    <AccountCard loading={userData.login === undefined}>
                         <Meta
                             avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                            title={`Hi ${userData.login}`}
-                            description="This is the description"
+                            title={`Hi: ${userData.login}`}
                         />
-                    </Card>,
+                        <Divider/>
+                        <Paragraph>
+                            <Text strong>Name: </Text>
+                            {userData.name}
+                        </Paragraph>
+                        <Paragraph>
+                            <Text strong>Last name: </Text>
+                            {userData.lastName}
+                        </Paragraph>
+                        <Paragraph>
+                            <Text strong>E-mail: </Text>
+                            {userData.email}
+                        </Paragraph>
+                    </AccountCard>
                 </Col>
             </Row>
-        </>
+        </AccountWrapper>
     )
 };
 

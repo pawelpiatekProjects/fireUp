@@ -8,6 +8,7 @@ export const secondaryBlue = 'rgb(116, 140, 183, .6)';
 export const colorLight = '#fff';
 export const colorLightRgba = 'rgba(255, 255, 255, .7)'
 export const primaryGray = '#eee';
+export const primaryRed = '#ff4c4c';
 
 
 // Box shadow
