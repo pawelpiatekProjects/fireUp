@@ -28,7 +28,7 @@ export const Nav = styled.ul`
   justify-content: center;
   align-items: center;
   list-style: none;
-  
+  height: 100%;
 `;
 
 export const NavItem = styled.li`

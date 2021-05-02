@@ -1,10 +1,9 @@
 import React, {useState} from "react";
 import {MainRow, CardWrapper, CardElement, CardImg, CardButton} from './CardStyles';
-import {Button, Col, Row, Typography} from "antd";
+import { Col, Row, Typography} from "antd";
 import {cardsData} from "./cardsData";
 import flower from '../../../assets/images/Flower.png';
-import * as variables from '../../../assets/styles/variables';
-import {Card} from "../../../shared/interfaces";
+
 
 const {Text, Title} = Typography;
 
@@ -35,7 +34,6 @@ const Cards: React.FC = () => {
                                 <Title level={4}>{cardsData[activeCard].cardTitle}</Title>
                                 <Text>{cardsData[activeCard].cardContent}</Text>
                             </CardElement>
-                            {/*TODO: add flower*/}
                             <CardImg src={flower}/>
                         </CardWrapper>
                     </Col>
