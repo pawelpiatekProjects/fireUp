@@ -1,15 +1,11 @@
 import styled from "styled-components";
-import {Card, Typography} from "antd";
+import {Card} from "antd";
 import * as variables from '../../assets/styles/variables';
-
-const {Title, Text} = Typography;
 
 export const BottomCardWrapper = styled(Card)`
   box-shadow: ${variables.boxShadowPrimary};
   border-radius: 2rem;
+  padding: 2rem 0;
 `;
 
-export const CardHeader = styled.h1`
-  color: ${variables.primaryYellow};
-`;
 

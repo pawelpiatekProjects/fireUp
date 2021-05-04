@@ -1,11 +1,10 @@
 import React from "react";
-import TopNav from "../TopNav/TopNav";
 import {User} from '../../mocks/shared/interfaces';
 import {Row, Col, Card, Avatar, Divider, Typography, Button} from 'antd';
 import {LogoutOutlined} from '@ant-design/icons'
-import {AccountWrapper,AccountCard} from './AccountStyles';
+import {AccountWrapper, AccountCard} from './AccountStyles';
 
-const { Meta } = Card;
+const {Meta} = Card;
 const {Paragraph, Text} = Typography;
 
 interface Props {
@@ -13,6 +12,9 @@ interface Props {
     onLogOut: () => void;
 }
 
+/*
+* Component which presents user data. It is displayed on '/account' route
+* **/
 const Account: React.FC<Props> = ({userData, onLogOut}) => {
     return (
         <AccountWrapper>
@@ -30,12 +32,11 @@ const Account: React.FC<Props> = ({userData, onLogOut}) => {
                             type='primary'
                             onClick={() => onLogOut()}
                         >
-                            Log Out<LogoutOutlined />
+                            Log Out<LogoutOutlined/>
                         </Button>
-
                     ]}>
                         <Meta
-                            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>}
                             title={`Hi: ${userData.login}`}
                         />
                         <Divider/>

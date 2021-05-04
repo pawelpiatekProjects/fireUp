@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
 export const NavWrapper = styled.div`
   height: 10%;
 `;
+
 export const ContentWrapper = styled.div`
   height: 90%;
   overflow-y: auto;

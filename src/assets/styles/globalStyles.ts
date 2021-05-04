@@ -7,7 +7,6 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-size: 62.5%; 
     
-    
     @media(max-width: ${variables.breakpoints.md}) {
       font-size: 56.25%;
     }
@@ -17,8 +16,6 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   
-  
-
   *,
   *::before,
   *::after {

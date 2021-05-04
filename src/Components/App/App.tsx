@@ -1,7 +1,6 @@
 import React from 'react';
 import {Redirect, Route, Switch} from "react-router";
 import {BrowserRouter} from "react-router-dom";
-import GlobalStyle from "../../assets/styles/globalStyles";
 import WeatherController from "../Weather/WeatherController";
 import Home from "../Home/Home";
 import PopUpContextProvider from "../../contexts/PopUpContext";
@@ -9,11 +8,10 @@ import PopUp from "../PopUp/PopUp";
 import SignInController from "../SignIn/SignInController";
 import AccountController from "../Account/AccountController";
 import Navigation from "../Navigation/Navigation";
+import GlobalStyle from "../../assets/styles/globalStyles";
 import {Wrapper, NavWrapper, ContentWrapper} from './AppStyles';
 
 function App() {
-
-
   return (
         <>
             <GlobalStyle/>

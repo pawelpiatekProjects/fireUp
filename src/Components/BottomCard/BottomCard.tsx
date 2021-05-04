@@ -1,25 +1,27 @@
 import React from "react";
-import {Card, Row, Col, Typography} from 'antd';
+import {Col, Row, Typography} from 'antd';
 import {data} from './bottomCardData';
-import {BottomCardWrapper, CardHeader} from './BottomCardStyles';
+import {BottomCardWrapper} from './BottomCardStyles';
 
-const {Title, Text} = Typography;
+const {Title, Paragraph} = Typography;
 
+/**
+ * Component which is displayed next to Carousel and contains list of paragraphs from 'bottomCardData'.
+ * */
 const BottomCard: React.FC = () => {
     return (
         <>
             <BottomCardWrapper>
                 <Title type='warning' level={1}>Title</Title>
                 {data.map((element, index) => (
-                    <Row gutter={[0, 20]} align='middle' key={index}>
+                    <Row gutter={[0, 20]} align='middle' key={index} style={{marginBottom: '1rem'}}>
                         <Col span={1}>
-                            <Title type='warning' level={2}>{index}</Title>
+                            <Title type='warning' level={2}>{index + 1}</Title>
                         </Col>
                         <Col span={18} offset={2}>
-                            <Text>{element}</Text>
+                            <Paragraph>{element}</Paragraph>
                         </Col>
                     </Row>
-
                 ))}
             </BottomCardWrapper>
         </>

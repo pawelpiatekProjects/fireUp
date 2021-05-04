@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Card, Col, Row, Button} from 'antd';
+import {Card, Row} from 'antd';
 import * as variables from '../../../assets/styles/variables';
 
 interface ICardButton {
