@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {NavLink} from 'react-router-dom';
 import {
     NavigationWrapper,
@@ -11,45 +11,46 @@ import {
     SideDrawerNavigation,
     SideDrawerNavigationItem
 } from './NavigationStyles';
-import * as variables from '../../assets/styles/variables';
-import {UserOutlined, MenuOutlined, CloseOutlined, HomeOutlined, CloudOutlined, ProfileOutlined} from "@ant-design/icons";
-import {useCookies} from "react-cookie";
+import {
+    UserOutlined,
+    MenuOutlined,
+    CloseOutlined,
+    HomeOutlined,
+    CloudOutlined,
+    ProfileOutlined
+} from "@ant-design/icons";
 
 
-const Navigation: React.FC = () => {
+interface IActiveStyles {
+    [key: string]: string;
+}
 
-    const [isSideDrawerOpen, setIsSideDrawerOpen] = useState(false);
+interface Props {
+    activeStyle: IActiveStyles;
+    token: string;
+    accountActiveStyle: IActiveStyles;
+    toggleSideDrawer: () => void;
+    isSideDrawerOpen: boolean;
+}
 
-    const toggleSideDrawer = () => {
-        setIsSideDrawerOpen(prevState => !prevState)
-    }
-
-    const activeStyle = {
-        background: variables.secondaryYellow,
-        color: variables.colorLight
-    }
-
-    const accountActiveStyle = {
-        color: variables.secondaryYellow
-    }
-
-    const [cookies] = useCookies(['token']);
-    const {token} = cookies;
-
-
+/** Custom navigation component */
+const Navigation: React.FC<Props> = (
+    {activeStyle, token, accountActiveStyle, toggleSideDrawer, isSideDrawerOpen}
+) => {
 
     return (
         <NavigationWrapper>
+            {/* Navigation for large devices */}
             <NavigationLarge>
                 <Nav>
                     <NavItem>
                         <NavLink to='/home' activeStyle={activeStyle}>HOME</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink to='#' >MENU2</NavLink>
+                        <NavLink to='#'>MENU2</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink to='#' >MENU3</NavLink>
+                        <NavLink to='#'>MENU3</NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink to='/weather' activeStyle={activeStyle}>WEATHER</NavLink>
@@ -60,18 +61,19 @@ const Navigation: React.FC = () => {
                         <NavLink to='/account' activeStyle={accountActiveStyle}>
                             <UserOutlined/>
                         </NavLink>
-                    ): (
+                    ) : (
                         <NavLink to='/signIn' activeStyle={accountActiveStyle}>
                             <UserOutlined/>
                         </NavLink>
                     )}
                 </NavAccount>
             </NavigationLarge>
+            {/* Navigation for small devices */}
             <NavigationSmall>
-                <MenuOutlined onClick={()=> toggleSideDrawer()}/>
+                <MenuOutlined onClick={() => toggleSideDrawer()}/>
             </NavigationSmall>
             <SideDrawer isOpen={isSideDrawerOpen}>
-                <CloseOutlined onClick={()=> toggleSideDrawer()}/>
+                <CloseOutlined onClick={() => toggleSideDrawer()}/>
                 <SideDrawerNavigation>
                     <SideDrawerNavigationItem>
                         <NavLink to='/home' onClick={() => toggleSideDrawer()}><HomeOutlined/>Home</NavLink>
@@ -86,12 +88,8 @@ const Navigation: React.FC = () => {
                         <NavLink to='/weather' onClick={() => toggleSideDrawer()}><CloudOutlined/>Weather</NavLink>
                     </SideDrawerNavigationItem>
                     <SideDrawerNavigationItem>
-                        {token ? (
-                            <NavLink to='/account' onClick={() => toggleSideDrawer()}><UserOutlined/>Account</NavLink>
-                        ): (
-                            <NavLink to='/signIn' onClick={() => toggleSideDrawer()}><UserOutlined/>Account</NavLink>
-                        )}
-
+                        {/* path is different whether user is authenticated or not */}
+                        <NavLink to={token ? '/account' : '/signIn'} onClick={() => toggleSideDrawer()}><UserOutlined/>Account</NavLink>
                     </SideDrawerNavigationItem>
                 </SideDrawerNavigation>
             </SideDrawer>

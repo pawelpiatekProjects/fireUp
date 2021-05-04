@@ -1,7 +1,6 @@
 import {rest} from 'msw';
-import {users, onSignIn, getUser} from './fixtures';
+import {onSignIn, getUser} from './fixtures';
 import {createToken} from './shared/token';
-
 
 interface SignInBody {
     email: string;
@@ -14,13 +13,10 @@ interface SignInResponse {
 }
 
 export const handlers = [
-    rest.get('/users', (req, res, ctx)=> {
-        return res(ctx.status(200), ctx.json(users));
-    }),
+    /* Endpoint for fetching authenticated user data **/
     rest.get('/user', (req, res, ctx) => {
-
         const {token} = req.cookies;
-        console.log('token from backend: ', token);
+
         if(token) {
             const user = getUser(token);
             if(user) {
@@ -37,8 +33,8 @@ export const handlers = [
                 message: 'Unauthorized'
             }))
         }
-
     }),
+    /** Sign in endpoint */
     rest.post<SignInBody, SignInResponse>('/signIn', (req, res, ctx) => {
         const {email, password} = req.body;
         const handlerResponse = onSignIn(email, password);

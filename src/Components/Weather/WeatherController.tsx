@@ -4,17 +4,17 @@ import {PopUpContext} from "../../contexts/PopUpContext";
 import Weather from "./Weather";
 import {WeatherData} from '../../shared/interfaces';
 
-//TODO: move API key to env
-const WEATHER_API_KEY = 'e7f9e8da664624d4f048d9c25a592a01';
-
+/** Function that returns openweathermap url for selected city and API key */
 const getUrl = (city: string) => {
-    return `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${WEATHER_API_KEY}`;
+    return `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
 }
 
+/** Function that returns image url for appropriate weather conditions */
 const getIconUrl = (icon: string) => {
     return`http://openweathermap.org/img/wn/${icon}@4x.png`;
 }
 
+/** Controller which contains logic for Weather component */
 const WeatherController: React.FC = () => {
 
     const {onOpenPopUp} = useContext(PopUpContext)
@@ -22,6 +22,7 @@ const WeatherController: React.FC = () => {
     const [weatherInfo, setWeatherInfo] = useState({} as WeatherData);
     const [isLoading, setIsLoading] = useState(false);
 
+    /** Function for fetching weather conditions for selected city */
     const onFetchWeatherData = async(city: string) => {
         setIsLoading(true);
         try {

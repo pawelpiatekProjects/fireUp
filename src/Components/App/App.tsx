@@ -7,9 +7,9 @@ import PopUpContextProvider from "../../contexts/PopUpContext";
 import PopUp from "../PopUp/PopUp";
 import SignInController from "../SignIn/SignInController";
 import AccountController from "../Account/AccountController";
-import Navigation from "../Navigation/Navigation";
 import GlobalStyle from "../../assets/styles/globalStyles";
 import {Wrapper, NavWrapper, ContentWrapper} from './AppStyles';
+import NavigationController from "../Navigation/NavigationController";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
                 <BrowserRouter>
                     <Wrapper>
                         <NavWrapper>
-                            <Navigation/>
+                            <NavigationController/>
                         </NavWrapper>
                         <ContentWrapper>
                             <Switch>

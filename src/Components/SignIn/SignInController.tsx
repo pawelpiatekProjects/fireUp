@@ -10,13 +10,18 @@ interface SignInResponse {
     token: string;
 }
 
+/* Controller for SignIn component **/
 const SignInController: React.FC = () => {
 
     const [isLoading, setIsLoading] = useState(false);
-    const {onOpenPopUp} = useContext(PopUpContext);
-    const history = useHistory();
-    const [cookies, setCookie] = useCookies(['token']);
 
+    const {onOpenPopUp} = useContext(PopUpContext);
+
+    const history = useHistory();
+
+    const [, setCookie] = useCookies(['token']);
+
+    /* Sign in function which sends request to MSW and as a result sets token in cookie or present error message **/
     const handleSignIn = async(email: string, password: string) => {
         setIsLoading(true);
         try {
@@ -24,14 +29,9 @@ const SignInController: React.FC = () => {
                 email: email,
                 password: password
             });
-
-            console.log('sign in data: ', data);
-
             setCookie('token', data.token);
-
             history.push('/account');
         } catch (_e) {
-            console.log(_e);
             onOpenPopUp({
                 header: 'Sign in failed',
                 message: 'Please try again'
@@ -39,7 +39,6 @@ const SignInController: React.FC = () => {
         } finally {
             setIsLoading(false);
         }
-
     }
 
     useEffect(() => {

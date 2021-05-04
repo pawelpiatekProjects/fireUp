@@ -1,7 +1,6 @@
 import React from "react";
-import TopNav from "../TopNav/TopNav";
 import SignInForm from "./SignInForm/SignInForm";
-import {Row, Col, Space} from 'antd';
+import {Row, Col} from 'antd';
 import {SignInWrapper, SignInFormWrapper} from './SignInStyles';
 
 interface Props {
@@ -9,6 +8,7 @@ interface Props {
     isLoading: boolean;
 }
 
+/* Component displayed on '/signIn' route which contains SignInForm **/
 const SignIn: React.FC<Props> = ({handleSubmit, isLoading}) => {
     return (
         <SignInWrapper>

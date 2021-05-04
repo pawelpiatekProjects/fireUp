@@ -1,3 +1,4 @@
+/* This file contains shared interfaces which are used in 'src' directory (except mocks directory) **/
 
 export interface Card {
     buttonName: string;

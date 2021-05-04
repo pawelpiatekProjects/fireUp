@@ -38,7 +38,7 @@ export const cardsData: Card[] = [
     {
         buttonName: 'Box name 4',
         cardTitle: 'Text from box name 4',
-        cardContent: 'Nunc id nibh quis lacus bibendum vestibulum. Curabitur accumsan metus justo, commodo dapibus nulla lacinia vitae. Quisque eget libero quam. Aliquam blandit consectetur quam, non iaculis turpis tincidunt egestas. Donec auctor facilisis neque, a efficitur enim feugiat vitae. Duis molestie urna ligula. Morbi eu mattis metus.\n' + 'Phasellus venenatis nec metus in fringilla. Fusce facilisis in felis sit amet tincidunt. Nulla facilisi. Nullam commodo hendrerit odio, ut luctus urna venenatis vel. Nulla id quam eu lorem rutrum sollicitudin vel vel dolor',
+        cardContent: 'Nunc id nibh quis lacus bibendum vestibulum. Curabitur accumsan metus justo, commodo dapibus nulla lacinia vitae. Quisque eget libero quam. Aliquam blandit consectetur quam, non iaculis turpis tincidunt egestas. Donec auctor facilisis neque, a efficitur enim feugiat vitae. Duis molestie urna ligula. Morbi eu mattis metus. Phasellus venenatis nec metus in fringilla. Fusce facilisis in felis sit amet tincidunt. Nulla facilisi. Nullam commodo hendrerit odio, ut luctus urna venenatis vel. Nulla id quam eu lorem rutrum sollicitudin vel vel dolor',
         /* Button style**/
         style: {
             background: variables.secondaryBlue,

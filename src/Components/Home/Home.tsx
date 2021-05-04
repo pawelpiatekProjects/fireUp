@@ -8,7 +8,7 @@ import {
 import Cards from "./Cards/Cards";
 import ImagesRow from "./ImagesRow/ImagesRow";
 import {Col, Row, Space} from "antd";
-import BottomCard from "../BottomCard/BottomCard";
+import BottomCard from "./BottomCard/BottomCard";
 import CarouselController from "./Carousel/CarouselController";
 
 /* Component displayed on '/home' route **/

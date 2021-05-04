@@ -2,19 +2,20 @@ import React, {useContext} from "react";
 import {Modal} from 'antd';
 import {PopUpContext} from "../../contexts/PopUpContext";
 
+/** Component which contains Modal which is controlled by PopUpContext */
 const PopUp: React.FC = () => {
 
     const {isPopUpOpen, onClosePopUp, popUpConfig} = useContext(PopUpContext);
 
     return (
-        <Modal
-            visible={isPopUpOpen}
-            title={popUpConfig.header}
-            onOk={() => onClosePopUp()}
-            onCancel={() => onClosePopUp()
-            }>
-            <p>{popUpConfig.message}</p>
-        </Modal>
+            <Modal
+                visible={isPopUpOpen}
+                title={popUpConfig.header}
+                onOk={() => onClosePopUp()}
+                onCancel={() => onClosePopUp()
+                }>
+                <p>{popUpConfig.message}</p>
+            </Modal>
     )
 };
 

@@ -12,8 +12,13 @@ interface ContextType {
     onClosePopUp: () => void;
 }
 
+/**
+ * Context which contains global state which contains information about PopUp. It also contains features for
+ * opening and closing PopUp
+ * */
 export const PopUpContext = createContext({} as ContextType);
 
+/** Context Provider for PopUpContext*/
 const PopUpContextProvider: React.FC = ({children}) => {
 
     const [isPopUpOpen, setIsPopUpOpen] = useState(false);

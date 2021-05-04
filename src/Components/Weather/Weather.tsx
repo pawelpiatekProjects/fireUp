@@ -1,6 +1,12 @@
 import React from "react";
-import {CardItem, EmptyWeatherCard, SearchInput, Temperature, WeatherImg, WeatherWrapper} from "./WeatherStyles";
-import TopNav from "../TopNav/TopNav";
+import {
+    CardItem,
+    EmptyWeatherCard,
+    SearchInput,
+    Temperature,
+    WeatherImg,
+    WeatherWrapper
+} from "./WeatherStyles";
 import {Col, Row, Typography} from "antd";
 import {AimOutlined, CloudOutlined} from "@ant-design/icons";
 import {WeatherData} from '../../shared/interfaces';
@@ -14,11 +20,18 @@ interface Props {
     getIconUrl: (icon: string) => string;
 }
 
+/** Component displayed on '/weather' route which presents weather conditions of selected city */
 const Weather: React.FC<Props> = ({onSearch, weatherInfo, isLoading, getIconUrl}) => {
     return (
         <WeatherWrapper>
             <Row align='middle'>
-                <Col xl={{span: 12, offset: 6}} lg={{span: 12, offset: 6}} md={{span: 16, offset: 4}} sm={{span: 20, offset: 2}} xs={{span: 22, offset: 1}}>
+                <Col
+                    xl={{span: 12, offset: 6}}
+                    lg={{span: 12, offset: 6}}
+                    md={{span: 16, offset: 4}}
+                    sm={{span: 20, offset: 2}}
+                    xs={{span: 22, offset: 1}}
+                >
                     <SearchInput
                         placeholder="enter city name"
                         enterButton="Search"
@@ -40,7 +53,10 @@ const Weather: React.FC<Props> = ({onSearch, weatherInfo, isLoading, getIconUrl}
                         <CardItem loading={isLoading}>
                             <Row>
                                 <Col flex={3}>
-                                    <WeatherImg src={getIconUrl(weatherInfo.weather[0].icon)} alt='WeatherController image'/>
+                                    <WeatherImg
+                                        src={getIconUrl(weatherInfo.weather[0].icon)}
+                                        alt='WeatherController image'
+                                    />
                                     <Title type='secondary' level={4}>
                                         {weatherInfo.weather[0].description.charAt(0).toUpperCase()
                                         + weatherInfo.weather[0].description.slice(1)}

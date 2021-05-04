@@ -28,7 +28,6 @@ export const CardItem = styled(Card)`
 `;
 
 export const EmptyWeatherCard = styled(CardItem)`
-  
   h3{
     text-align: center;
   }
@@ -46,7 +45,6 @@ export const WeatherImg = styled.img`
 `;
 
 export const Temperature = styled.h1`
-  
   font-size: 10rem;
   position: relative;
   color: ${variables.primaryBlue};

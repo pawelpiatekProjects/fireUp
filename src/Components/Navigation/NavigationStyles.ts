@@ -21,8 +21,6 @@ export const NavigationLarge = styled.div`
   }
 `;
 
-
-
 export const Nav = styled.ul`
   display: flex;
   justify-content: center;
@@ -45,10 +43,8 @@ export const NavItem = styled.li`
     &:hover {
       background: ${variables.secondaryYellow};
       color: ${variables.colorLight};
-
     }
   }
-  
 `;
 
 export const NavAccount = styled.div`
@@ -96,7 +92,6 @@ export const SideDrawer = styled.div<ISideDrawer>`
   @media(max-width: ${variables.breakpoints.sm}) {
     width: 50%;
   }
-  
 `;
 
 export const SideDrawerNavigation = styled.ul`
