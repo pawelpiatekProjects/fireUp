@@ -1,15 +1,8 @@
 import styled from "styled-components";
-import { Layout} from 'antd';
 import * as variables from '../../assets/styles/variables';
 
-const {Content} = Layout;
-
-
-
-export const ContentWrapper = styled(Content)`
-  //padding: 0 5rem;
+export const ContentWrapper = styled.div`
   background: ${variables.colorLight};
-  
 `;
 
 export const CardsWrapper = styled.div`
@@ -23,12 +16,7 @@ export const CardsWrapper = styled.div`
 `;
 
 export const ImagesRowWrapper = styled.div`
-  //padding: 3rem;
   margin-bottom: 5rem;
-`;
-
-export const CarouselWrapper = styled.div`
-
 `;
 
 export const Footer = styled.div`

@@ -1,21 +1,18 @@
 import React from "react";
-import TopNav from "../TopNav/TopNav";
 import {
     ContentWrapper,
     CardsWrapper,
     ImagesRowWrapper,
-    CarouselWrapper,
     Footer
 } from './HomeStyles';
 import Cards from "./Cards/Cards";
 import ImagesRow from "./ImagesRow/ImagesRow";
-import Carousel from "./Carousel/Carousel";
 import {Col, Row, Space} from "antd";
 import BottomCard from "../BottomCard/BottomCard";
+import CarouselController from "./Carousel/CarouselController";
 
-
+/* Component displayed on '/home' route **/
 const Home: React.FC = () => {
-
     return (
         <>
             <ContentWrapper>
@@ -26,17 +23,17 @@ const Home: React.FC = () => {
                     <ImagesRowWrapper>
                         <ImagesRow/>
                     </ImagesRowWrapper>
-                    <Row >
+                    <Row>
                         <Col xl={{span: 24}} lg={{span: 24}}>
-                            <Row gutter={[0,20]}>
+                            <Row gutter={[0, 20]}>
                                 <Col
                                     xl={{span: 11}}
-                                    lg={{span:20, offset: 2}}
-                                    md={{span:20, offset: 2}}
-                                    sm={{span:20, offset: 2}}
-                                    xs={{span:20, offset: 2}}
+                                    lg={{span: 20, offset: 2}}
+                                    md={{span: 20, offset: 2}}
+                                    sm={{span: 20, offset: 2}}
+                                    xs={{span: 20, offset: 2}}
                                 >
-                                    <Carousel/>
+                                    <CarouselController/>
                                 </Col>
                                 <Col
                                     xl={{span: 8, offset: 1}}
@@ -51,7 +48,13 @@ const Home: React.FC = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col xl={{span: 24}} lg={{span: 24}} md={{span: 24}} sm={{span: 24}} xs={{span: 24}}>
+                        <Col
+                            xl={{span: 24}}
+                            lg={{span: 24}}
+                            md={{span: 24}}
+                            sm={{span: 24}}
+                            xs={{span: 24}}
+                        >
                             <Footer/>
                         </Col>
                     </Row>

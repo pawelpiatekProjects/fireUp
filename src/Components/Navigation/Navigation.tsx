@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {NavLink} from 'react-router-dom';
 import {
     NavigationWrapper,
@@ -14,7 +14,6 @@ import {
 import * as variables from '../../assets/styles/variables';
 import {UserOutlined, MenuOutlined, CloseOutlined, HomeOutlined, CloudOutlined, ProfileOutlined} from "@ant-design/icons";
 import {useCookies} from "react-cookie";
-import {useHistory} from "react-router";
 
 
 const Navigation: React.FC = () => {

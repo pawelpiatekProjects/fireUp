@@ -1,30 +1,13 @@
 import React from 'react';
 import {Row, Col} from 'antd'
-import styled from "styled-components";
 import * as variables from '../../../assets/styles/variables';
 import office1 from '../../../assets/images/office1.jpg';
 import office2 from '../../../assets/images/office2.jpg';
 import office3 from '../../../assets/images/office3.jpg';
 import office4 from '../../../assets/images/office4.jpg';
+import {Image} from './ImagesRowStyles';
 
-interface IImages {
-    img: string;
-    color: string;
-}
-
-const Image = styled.div<IImages>`
-  background-image: ${props => `linear-gradient(0deg, ${props.color}, ${props.color}), url(${props.img})`};
-  width: 100%;
-  height: 20rem;
-  background-size: cover;
-  border-radius: 2rem;
-  transition: transform .3s;
-  
-  &:hover {
-    transform: scale(1.03);
-  }
-`;
-
+/** Component which displays images with color gradient filters */
 const ImagesRow: React.FC = () => {
     return(
         <>
@@ -47,7 +30,6 @@ const ImagesRow: React.FC = () => {
                 </Col>
             </Row>
         </>
-
     )
 };
 
