@@ -42,7 +42,6 @@ export const ModalHeader = styled.h2`
   @media(max-width: ${variables.breakpoints.lg}) {
     font-size: 1.8rem;
   }
-  
 `;
 
 export const ModalContent = styled.p`

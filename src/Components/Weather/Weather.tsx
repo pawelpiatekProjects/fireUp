@@ -2,6 +2,7 @@ import React from "react";
 import {
     CardItem,
     EmptyWeatherCard,
+    EmptyWeatherTitle,
     SearchInput,
     Temperature,
     WeatherImg,
@@ -41,8 +42,14 @@ const Weather: React.FC<Props> = ({onSearch, weatherInfo, isLoading, getIconUrl}
                     {Object.keys(weatherInfo).length === 0 ? (
                         <EmptyWeatherCard>
                             <Row>
-                                <Col span='14' offset='5'>
-                                    <Title type='secondary' level={3}>Enter city name to check weather</Title>
+                                <Col
+                                    xl={{span: 14, offset: 5}}
+                                    lg={{span: 18, offset: 3}}
+                                    md={{span: 20, offset: 2}}
+                                    sm={{span: 20, offset: 2}}
+                                    xs={{span: 20, offset: 2}}
+                                >
+                                    <EmptyWeatherTitle type='secondary' level={4}>Enter city name to check weather</EmptyWeatherTitle>
                                 </Col>
                                 <Col span='2' offset='11'>
                                     <CloudOutlined />

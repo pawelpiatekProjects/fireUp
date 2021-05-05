@@ -1,9 +1,11 @@
 import styled from "styled-components";
-import {Card, Input} from 'antd';
+import {Card, Input, Typography} from 'antd';
 import * as variables from '../../assets/styles/variables';
 import weather from '../../assets/images/weather.jpg';
 
 const {Search} = Input;
+const {Title} = Typography;
+
 
 export const WeatherWrapper = styled.div`
   background-image: linear-gradient(0deg, ${variables.primaryBlue}, ${variables.primaryBlue}), url(${weather});
@@ -36,6 +38,10 @@ export const EmptyWeatherCard = styled(CardItem)`
     font-size: 7rem;
     color: ${variables.primaryGray};
   }
+`;
+
+export const EmptyWeatherTitle = styled(Title)`
+  text-align: center;
 `;
 
 export const WeatherImg = styled.img`
