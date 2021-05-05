@@ -12,8 +12,43 @@
     <li>Context</li>
 </ul>
 
-<p>Reasons for choosing these technologies :</p>
+<p>Reasons for choosing these technologies:</p>
+<ul>
+    <li>Typescript - static types, useful concepts like: interfaces, generic methods. </li>
+    <li>Styled Components - using styled components it is easy to inject props into components and dynamically
+    styles of components.</li>
+    <li>Ant design - this is one of the most popular react styling library. It is easy to use with React because 
+    it has pre-prepared components. This library has also good documentation</li>
+    <li>OpenWeather - good documentation and low entry level</li>
+    <li>Formik - It is declarative. This is one of the most popular library for validation forms. It also allows to 
+    use pre-prepared inputs for another libraries like Ant Design.</li>
+    <li>Context - Context is a good solution of creating global application state. It has advantages of Redux
+    while minimizing the amount of redundant code</li>
+</ul>
 
+<p>Features explanation:</p>
+<ul>
+    <li><b>Home page</b> - The home page was made according to mockup. At the top of the page there is a section with 4 buttons
+    that change the content in the tab on the right. Below is a row of 4 photos with the filter applied. At the bottom 
+    there is a carousel with photos and a section with 6 paragraphs. Images in the carousel are changed after the 
+    arrows are clicked. After a few clicks, a popup appears.</li>
+    <li><b>Weather page</b> - The weather forecast component uses OpenWeather API. The application is linked to this API with
+    a key that is in .env file. After entering the city name and clicking the 'Search' button, the get request is sent 
+    to the API with the appropriate url address, which contains the injected key and the city name. If the request does 
+    not return an error, the screen will show information about the weather in the selected city and a photo that shows 
+    the weather. If the request returns an error, a popup will appear.</li>
+    <li><b>Sign In and Account page</b> - MSW js was used to mock sign in feature. In the mocks folder there are 3 files
+    responsible for mocking requests: <b>'browser.ts'</b>, <b>'fixtures.ts'</b>, <b>'handlers.ts'</b>. The content of the
+    files is described <a href="#mocks">below</a>. If the user is not logged in, after clicking the avatar, he will be 
+    transferred to the sign in form. After logging in, he is transferred to the page that contains information about the
+    user. In addition a token which was returned by MSW is set in the cookie.</li>
+</ul>
+
+<p>Sign In data:</p>
+<ul>
+    <li><b>email:</b> j.kowalski@email.com</li>
+    <li><b>password: </b> 12345678</li>
+</ul>
 
 <h1 align="center">
   Directory structure
@@ -175,7 +210,7 @@
     <ul>
         <li>PopUpContext.tsx - this file contains context and context provider which are used for controlling PopUp</li>
     </ul>
-    <li>mocks - this directory contains logic for simulating rest API requests</li>
+    <li id="mocks">mocks - this directory contains logic for simulating rest API requests</li>
     <ul>
         <li>shared</li>
         <ul>

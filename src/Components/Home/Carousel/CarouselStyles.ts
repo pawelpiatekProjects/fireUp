@@ -16,7 +16,7 @@ export const CarouselWrapper = styled.div`
 
 const CarouselItem = styled.div<ICarouselItem>`
   width: 100%;
-  height: 50rem;
+  height: 60rem;
   background-image: ${props => `url(${props.img})`};
   filter: grayscale(100%);
   background-size: cover;
