@@ -53,8 +53,11 @@
 <h1 align="center">
   Screenshots
 </h1>  
-
-
+<img  src="https://github.com/pawelpiatekProjects/fireUp/blob/master/src/assets/images/README/screen1.PNG" />
+<img  src="https://github.com/pawelpiatekProjects/fireUp/blob/master/src/assets/images/README/screen2.PNG" />
+<img  src="https://github.com/pawelpiatekProjects/fireUp/blob/master/src/assets/images/README/screen3.PNG" />
+<img  src="https://github.com/pawelpiatekProjects/fireUp/blob/master/src/assets/images/README/screen4.PNG" />
+<img  src="https://github.com/pawelpiatekProjects/fireUp/blob/master/src/assets/images/README/screen5.PNG" />
 
 <h1 align="center">
   Directory structure
