@@ -1,6 +1,7 @@
 import React, {useContext} from "react";
-import {Modal} from 'antd';
 import {PopUpContext} from "../../contexts/PopUpContext";
+import {Wrapper, Modal, Backdrop, ModalHeader, ModalContent, ButtonsRow} from './PopUpStyles';
+import {Button} from 'antd';
 
 /** Component which contains Modal which is controlled by PopUpContext */
 const PopUp: React.FC = () => {
@@ -8,14 +9,17 @@ const PopUp: React.FC = () => {
     const {isPopUpOpen, onClosePopUp, popUpConfig} = useContext(PopUpContext);
 
     return (
-            <Modal
-                visible={isPopUpOpen}
-                title={popUpConfig.header}
-                onOk={() => onClosePopUp()}
-                onCancel={() => onClosePopUp()
-                }>
-                <p>{popUpConfig.message}</p>
+        <Wrapper isOpen={isPopUpOpen}>
+            <Modal >
+                <ModalHeader>{popUpConfig.header}</ModalHeader>
+                <ModalContent>{popUpConfig.message}</ModalContent>
+                <ButtonsRow>
+                    <Button onClick={() => onClosePopUp()}>Cancel</Button>
+                    <Button onClick={() => onClosePopUp()} type='primary'>Ok</Button>
+                </ButtonsRow>
             </Modal>
+            <Backdrop/>
+        </Wrapper>
     )
 };
 
