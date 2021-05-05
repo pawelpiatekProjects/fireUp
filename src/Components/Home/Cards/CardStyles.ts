@@ -20,7 +20,6 @@ export const CardElement = styled(Card)`
   border-radius: 2rem;
   box-shadow: ${variables.boxShadowPrimary};
   z-index: 2;
-  
 `;
 
 export const CardImg = styled.img`
@@ -33,7 +32,6 @@ export const CardImg = styled.img`
   @media(max-width: ${variables.breakpoints.lg}) {
     display: none;
   }
-  
 `;
 
 export const CardButton = styled.button<ICardButton>`

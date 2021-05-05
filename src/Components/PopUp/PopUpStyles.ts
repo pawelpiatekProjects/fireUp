@@ -31,7 +31,6 @@ export const Modal = styled.div`
   @media(max-width: ${variables.breakpoints.sm}) {
     width: 80%;
   }
-
 `;
 
 export const ModalHeader = styled.h2`

@@ -22,11 +22,9 @@ const CarouselItem = styled.div<ICarouselItem>`
   background-size: cover;
   position: relative;
   transition: all .6s;
-  
   opacity: ${props => props.isAnimating ? '.4' : '1'};
   transform: ${props => props.isAnimating ? 'rotateY(90deg)' : 'rotateY(0)'};
-
-
+  
   &:after {
     position: absolute;
     width: 100%;
@@ -45,7 +43,6 @@ const CarouselItem = styled.div<ICarouselItem>`
   @media(max-width: ${variables.breakpoints.lg}) {
     height: 30rem;
   }
-  
 `;
 
 export const CarouselItemLeft = styled(CarouselItem)`
